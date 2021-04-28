@@ -15,14 +15,16 @@ const GlobalStyle = createGlobalStyle`
         font-family : 'Noto Sans KR','roboto mono', 'muli', sans-serif;
     }
 
-
     body.light{
-
+        --title-color: #00958C;
     }
 
     body.dark{
-
+        --title-color: #96FAC3;
     }
+
+
+
 
 `;
 

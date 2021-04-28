@@ -1,8 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 import Layout from '../components/layout';
+import useTheme from '../hooks/useTheme';
 
 export default function Home() {
+  useTheme();
+
   return (
     <Layout>
       <Title>Hi</Title>
@@ -11,6 +14,6 @@ export default function Home() {
 }
 
 const Title = styled.div`
-  color: var(--test-title);
+  color: var(--title-color);
   border-bottom: var(--test-border);
 `;
