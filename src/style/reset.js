@@ -130,4 +130,11 @@ License: none (public domain)
     border-collapse: collapse;
     border-spacing: 0;
   }
+
+  button {
+    border: none;
+  }
+  * {
+    box-sizing: border-box;
+  }
 `;

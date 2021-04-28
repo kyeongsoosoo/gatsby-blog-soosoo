@@ -6,11 +6,7 @@ import useTheme from '../hooks/useTheme';
 export default function Home() {
   useTheme();
 
-  return (
-    <Layout>
-      <Title>Hi</Title>
-    </Layout>
-  );
+  return <Layout></Layout>;
 }
 
 const Title = styled.div`
