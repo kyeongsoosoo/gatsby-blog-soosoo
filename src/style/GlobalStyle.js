@@ -7,7 +7,6 @@ const GlobalStyle = createGlobalStyle`
     ${style_reset}
 
     :root {
-  
         --title-color: #96fac3;
         --title-weight: 700;
         --title-size: 42px;
@@ -53,7 +52,11 @@ const GlobalStyle = createGlobalStyle`
         --bb-background-color: #96FAC3;
         --category-background-color: #96FAC3;
 
-        background-color: rgb(250,250,250);
+        --item-background-color: white;
+        
+        --tag-background-color: #96FAC3;
+
+        background-color: rgb(248,249,250);
     }
 
     body.dark{
@@ -65,6 +68,10 @@ const GlobalStyle = createGlobalStyle`
 
         --bb-background-color: #CAFCDC;
         --category-background-color: #CAFCDC;
+
+        --item-background-color: #282D35;
+
+        --tag-background-color: #CAFCDC;
 
         background-color: #101521;
         color: white;
