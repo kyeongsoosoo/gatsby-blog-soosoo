@@ -1,9 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
-import Layout from '../components/layout';
+import HomeLayout from '../components/HomeLayout/HomeLayout';
+import IntroBubble from '../components/IntroBubble';
 
 export default function Home() {
-  return <Layout></Layout>;
+  return <HomeLayout></HomeLayout>;
 }
 
 const Title = styled.div`

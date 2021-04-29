@@ -12,6 +12,12 @@ const GlobalStyle = createGlobalStyle`
         --title-weight: 700;
         --title-size: 42px;
 
+        --typo1-weight: 700;
+        --typo1-size: 28px;
+
+        --typo2-weight: 400;
+        --typo2-size: 18px;
+
         --header-width: 100%;
         --header-height: 7vh;
         --header-padding: 30px 30px;
@@ -19,11 +25,22 @@ const GlobalStyle = createGlobalStyle`
 
         --theme-toggler-width: 150px;
         --theme-toggler-height: 60px;
+
+        --bb-width: 200px;
+        --bb-height: 300px;
+        --bb-border-radius: 15px;
+
+        --category-block-width: 200px;
+        --category-block-min-height: 500px;
+        --category-border-radius: 15px;
+        
         
     }
 
     body{
         font-family : 'Noto Sans KR','roboto mono', 'muli', sans-serif;
+
+        
     }
 
     body.light{
@@ -32,6 +49,11 @@ const GlobalStyle = createGlobalStyle`
 
 
         --title-color: #00958C;
+
+        --bb-background-color: #96FAC3;
+        --category-background-color: #96FAC3;
+
+        background-color: rgb(250,250,250);
     }
 
     body.dark{
@@ -41,7 +63,11 @@ const GlobalStyle = createGlobalStyle`
 
         --title-color: #96FAC3;
 
+        --bb-background-color: #CAFCDC;
+        --category-background-color: #CAFCDC;
+
         background-color: #101521;
+        color: white;
     }
 
 
