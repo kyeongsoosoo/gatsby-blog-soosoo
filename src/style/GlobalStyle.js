@@ -20,6 +20,7 @@ const GlobalStyle = createGlobalStyle`
         --header-width: 100%;
         --header-height: 7vh;
         --header-padding: 30px 30px;
+        --header-margin-bottom: 50px;
         --header-border-bottom: 1px solid gray;
 
         --theme-toggler-width: 150px;

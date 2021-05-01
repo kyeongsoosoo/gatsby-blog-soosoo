@@ -21,6 +21,7 @@ const HeaderWrapper = styled.header`
   width: var(--header-width);
   height: var(--header-height);
   padding: var(--header-padding);
+  margin-bottom: var(--header-margin-bottom);
 `;
 
 const HeaderLeftBox = styled.div`

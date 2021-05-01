@@ -19,7 +19,7 @@ export default function HomeMain() {
 
 const HomeMainWrapper = styled.div`
   --home-main-width: 100%;
-  --home-main-min-width: 200px;
+  --home-main-min-width: 400px;
   --home-main-min-height: 80vh;
 
   min-width: var(--home-main-min-width);

@@ -18,7 +18,7 @@ export default function PostItem() {
 }
 
 const PostItemWrapper = styled.div`
-  --item-width: 60vw;
+  --item-width: 80%;
   --item-max-width: 700px;
   --item-height: 200px;
   --item-radius: 30px;
@@ -32,6 +32,8 @@ const PostItemWrapper = styled.div`
   border-radius: var(--item-radius);
   padding: var(--item-padding);
   margin-bottom: var(--item-margin-bottom);
+
+  box-sizing: content-box;
 `;
 
 const PostItemTitle = styled.h1`
