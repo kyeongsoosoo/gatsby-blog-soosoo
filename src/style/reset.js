@@ -113,6 +113,7 @@ License: none (public domain)
     line-height: 1;
   }
   ol,
+  li,
   ul {
     list-style: none;
   }

@@ -3,21 +3,21 @@ import styled from 'styled-components';
 import { titleCss, typo2 } from '../../../../style/typo';
 import { flexCenter } from '../../../../style/styleUtil';
 
-export default function PostItem() {
+export default function PostItem({ title, excerpt = '', tagList }) {
   return (
     <PostItemWrapper>
-      <PostItemTitle>Hi</PostItemTitle>
-      <PostItemDesc>Hi 안녕하세요 김경수입니다.</PostItemDesc>
+      <PostItemTitle>{title}</PostItemTitle>
+      <PostItemDesc>{excerpt}</PostItemDesc>
       <PostItemTagBox>
-        <PostItemTag>#Hi</PostItemTag>
-        <PostItemTag>#Hi</PostItemTag>
-        <PostItemTag>#Hi</PostItemTag>
+        {tagList.map(tag => (
+          <PostItemTag key={tag}>{`#${tag}`}</PostItemTag>
+        ))}
       </PostItemTagBox>
     </PostItemWrapper>
   );
 }
 
-const PostItemWrapper = styled.div`
+const PostItemWrapper = styled.li`
   --item-width: 80%;
   --item-max-width: 700px;
   --item-height: 200px;

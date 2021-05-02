@@ -8,9 +8,8 @@ export default function HomeLayout({ children }) {
   return (
     <Layout>
       <HomeWrapper>
-        <HomeMain></HomeMain>
+        <HomeMain>{children}</HomeMain>
         <HomeSideBar></HomeSideBar>
-        {children}
       </HomeWrapper>
     </Layout>
   );

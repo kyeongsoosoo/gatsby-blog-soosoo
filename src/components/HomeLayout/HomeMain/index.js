@@ -3,16 +3,11 @@ import styled from 'styled-components';
 import { titleCss } from '../../../style/typo';
 import PostItem from './PostItem';
 
-export default function HomeMain() {
+export default function HomeMain({ children }) {
   return (
     <HomeMainWrapper>
       <HomeMainTitle>Home</HomeMainTitle>
-      <PostItem />
-      <PostItem />
-      <PostItem />
-      <PostItem />
-      <PostItem />
-      <PostItem />
+      {children}
     </HomeMainWrapper>
   );
 }
