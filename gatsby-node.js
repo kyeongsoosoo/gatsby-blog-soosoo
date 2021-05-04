@@ -1,4 +1,6 @@
 const path = require('path');
+const { TagService } = require('./src/utils/TagService');
+// const TagService = require('./src/utils/TagService');
 
 exports.createPages = async function ({ actions, graphql }) {
   const { data } = await graphql(`
@@ -8,6 +10,7 @@ exports.createPages = async function ({ actions, graphql }) {
           node {
             frontmatter {
               slug
+              tagList
             }
             id
           }
@@ -15,6 +18,10 @@ exports.createPages = async function ({ actions, graphql }) {
       }
     }
   `);
+
+  const Tag = new TagService();
+  const countedTagList = Tag.makeCountedTag(data.allMdx.edges);
+  console.log('counted ', countedTagList);
 
   //Create paginated pages for posts
 
@@ -33,6 +40,25 @@ exports.createPages = async function ({ actions, graphql }) {
         currentPage: i + 1,
       },
     });
+  });
+
+  countedTagList.forEach((tag, idx) => {
+    const numPages = Math.ceil(tag.count / postPerPage);
+    const tagRegex = `/^${tag.tagName}$/i`;
+    Array.from({ length: numPages }).forEach((_, i) =>
+      actions.createPage({
+        path: `/${tag.tagName}/${i + 1}`,
+        component: path.resolve('./src/templates/allPosts.js'),
+        context: {
+          limit: postPerPage,
+          skip: i * postPerPage,
+          categoryRegex: tagRegex,
+          numPages,
+          currentPage: i + 1,
+          category: tag.tagName,
+        },
+      }),
+    );
   });
 };
 

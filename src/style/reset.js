@@ -121,6 +121,10 @@ License: none (public domain)
   q {
     quotes: none;
   }
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
   blockquote:before,
   blockquote:after,
   q:before,

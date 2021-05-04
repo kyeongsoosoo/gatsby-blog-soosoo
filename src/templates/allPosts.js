@@ -3,13 +3,20 @@ import { graphql, useStaticQuery } from 'gatsby';
 import Layout from '../components/layout';
 import PostItem from '../components/HomeLayout/HomeMain/PostItem';
 import HomeLayout from '../components/HomeLayout/HomeLayout';
+import Pagination from '../components/Pagination';
 
 export default function AllPosts({ pageContext, data }) {
-  const { currentPage, numPages } = pageContext;
+  const { currentPage, numPages, category = false } = pageContext;
   const isFirst = currentPage === 1;
   const isLast = currentPage === numPages;
-  const prevPage = currentPage - 1 === 1 ? '/' : `/${currentPage - 1}`;
-  const extPage = `/${currentPage + 1}`;
+  const prevPage = category
+    ? `/${category}/${currentPage - 1}`
+    : currentPage - 1 === 1
+    ? '/'
+    : `/${currentPage - 1}`;
+  const nextPage = category
+    ? `/${category}/${currentPage + 1}`
+    : `/${currentPage + 1}`;
 
   const posts = data.allMdx.edges;
 
@@ -23,13 +30,20 @@ export default function AllPosts({ pageContext, data }) {
           tagList={post.node.frontmatter.tagList}
         />
       ))}
+      <Pagination
+        isFirst={isFirst}
+        isLast={isLast}
+        prevPage={prevPage}
+        nextPage={nextPage}
+      />
     </HomeLayout>
   );
 }
 
 export const pageQuery = graphql`
-  query AllPostsQuery($skip: Int!, $limit: Int!) {
+  query AllPostsQuery($skip: Int!, $limit: Int!, $categoryRegex: String) {
     allMdx(
+      filter: { frontmatter: { tagList: { regex: $categoryRegex } } }
       sort: { fields: frontmatter___date, order: DESC }
       skip: $skip
       limit: $limit

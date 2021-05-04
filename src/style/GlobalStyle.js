@@ -35,6 +35,7 @@ const GlobalStyle = createGlobalStyle`
         --category-border-radius: 15px;
         
         
+        
     }
 
     body{
@@ -58,6 +59,9 @@ const GlobalStyle = createGlobalStyle`
         --tag-background-color: #96FAC3;
 
         background-color: rgb(248,249,250);
+
+        --pagination-background-color: #6B64D6;
+        --pagination-background-color-disabled: #BEB8FD;
     }
 
     body.dark{
@@ -73,6 +77,9 @@ const GlobalStyle = createGlobalStyle`
         --item-background-color: #282D35;
 
         --tag-background-color: #CAFCDC;
+
+        --pagination-background-color: #BEB8FD;
+        --pagination-background-color-disabled: #EAE7FE;
 
         background-color: #101521;
         color: white;
