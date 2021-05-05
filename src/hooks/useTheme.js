@@ -6,24 +6,25 @@ export default function useTheme() {
   const [theme, setTheme] = useState();
 
   const themeHandler = savedTheme => {
-    if (savedTheme === 'Dark') {
-      Theme.add('dark');
+    if (savedTheme === 'dark') {
       Theme.remove('light');
+      Theme.add('dark');
     } else {
-      Theme.add('light');
       Theme.remove('dark');
+      Theme.add('light');
     }
   };
 
   const handleThemeToggle = () => {
-    setTheme(theme === 'Light' ? 'Dark' : 'Light');
-    themeHandler(theme);
+    const toggledTheme = theme === 'light' ? 'dark' : 'light';
+    setTheme(toggledTheme);
+    themeHandler(toggledTheme);
   };
 
   useLayoutEffect(() => {
-    const savedTheme = localStorage.getItem('theme') || 'Light';
+    const savedTheme = localStorage.getItem('theme') || 'light';
 
-    if (savedTheme === null) localStorage.setItem('theme', 'Light');
+    if (savedTheme === null) localStorage.setItem('theme', 'light');
 
     setTheme(savedTheme);
 

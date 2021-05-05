@@ -6,7 +6,7 @@ export default function ThemeToggler() {
   const { theme, handleThemeToggle } = useTheme();
   return (
     <ThemeTogglerWrapper onClick={handleThemeToggle}>
-      {`${theme}로 보기`}
+      {`${theme === 'light' ? 'Dark' : 'Light'}로 보기`}
     </ThemeTogglerWrapper>
   );
 }

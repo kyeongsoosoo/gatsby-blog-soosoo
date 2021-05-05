@@ -10,10 +10,12 @@ class Theme {
 
   add(insert) {
     this.bodyElement.classList.add(insert);
+    localStorage.setItem('theme', insert);
   }
 
   remove(dt) {
     this.bodyElement.classList.remove(dt);
+    localStorage.removeItem('theme');
   }
 }
 
