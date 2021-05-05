@@ -69,6 +69,7 @@ const GlobalStyle = createGlobalStyle`
         --floating-moz-box-shadow: 0px 1px 9px 2px rgba(99,91,99,1);
         --floating-box-shadow:0px 1px 9px 2px rgba(99,91,99,1);
 
+        --p-color: black;
     }
 
     body.dark{
@@ -91,6 +92,8 @@ const GlobalStyle = createGlobalStyle`
         --floating-webkit-box-shadow: 0px 1px 9px 3px rgba(214,214,214,0.67);
         --floating-moz-box-shadow: 0px 1px 9px 3px rgba(214,214,214,0.67);
         --floating-box-shadow: 0px 1px 9px 3px rgba(214,214,214,0.67);
+
+        --p-color: white;
 
         background-color: #101521;
         color: white;

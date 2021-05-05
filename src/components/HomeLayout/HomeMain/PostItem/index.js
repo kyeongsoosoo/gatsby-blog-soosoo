@@ -6,17 +6,20 @@ import { FloatingBox } from '../../../../Element/FloatingBox';
 import TagItem from '../../../TagItem/TagItem';
 import { Link } from 'gatsby';
 import NamingService from '../../../../utils/NamingService';
+import P from '../../../../Element/P';
 
 export default function PostItem({ title, excerpt = '', tagList, slug }) {
   return (
     <PostItemLinkWrapper to={`/${slug}`}>
       <PostItemWrapper>
         <PostItemTitle>{title}</PostItemTitle>
-        <PostItemDesc>{excerpt}</PostItemDesc>
+        <PostItemDesc>
+          <P>{excerpt}</P>
+        </PostItemDesc>
         <PostItemTagBox>
           {tagList.map(tag => (
             <TagItem key={tag} slug={NamingService.makeCategorySlug(tag)}>
-              {NamingService.makeHashTag(tag)}
+              <P>{NamingService.makeHashTag(tag)}</P>
             </TagItem>
           ))}
         </PostItemTagBox>

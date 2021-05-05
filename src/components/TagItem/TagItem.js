@@ -2,6 +2,7 @@ import { Link } from 'gatsby';
 import React from 'react';
 import styled from 'styled-components';
 import { FloatingBox } from '../../Element/FloatingBox';
+import P from '../../Element/P';
 import { flexCenter } from '../../style/styleUtil';
 
 export default function TagItem({ children, slug }) {
@@ -9,7 +10,11 @@ export default function TagItem({ children, slug }) {
     event.preventDefault();
     window.location.href = `${window.location.origin}/${slug}`;
   };
-  return <TagWrapper onClick={handleTagLink}>{children}</TagWrapper>;
+  return (
+    <TagWrapper onClick={handleTagLink}>
+      <P>{children}</P>
+    </TagWrapper>
+  );
 }
 
 const TagWrapper = styled(FloatingBox)`
