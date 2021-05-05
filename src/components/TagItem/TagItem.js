@@ -5,11 +5,11 @@ import { FloatingBox } from '../../Element/FloatingBox';
 import { flexCenter } from '../../style/styleUtil';
 
 export default function TagItem({ children, slug }) {
-  const t = event => {
+  const handleTagLink = event => {
     event.preventDefault();
     window.location.href = `${window.location.origin}/${slug}`;
   };
-  return <TagWrapper onClick={t}>{children}</TagWrapper>;
+  return <TagWrapper onClick={handleTagLink}>{children}</TagWrapper>;
 }
 
 const TagWrapper = styled(FloatingBox)`
