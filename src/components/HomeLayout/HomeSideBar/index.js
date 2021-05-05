@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import NamingService from '../../../utils/NamingService';
 import CategoryBlock from '../../CategoryBlock';
 import IntroBubble from '../../IntroBubble';
 import TagItem from '../../TagItem/TagItem';
@@ -11,9 +12,11 @@ export default function HomeSideBar({ totalTagList }) {
       <CategoryBlock>
         {totalTagList.map(item => (
           <TagItem
-            slug={`${item.tagName}/1`}
+            slug={NamingService.makeCategorySlug(item.tagName)}
             key={item.tagName}
-          >{`#${item.tagName}(${item.count})`}</TagItem>
+          >
+            {NamingService.makeHashTag(item.tagName, item.count)}
+          </TagItem>
         ))}
       </CategoryBlock>
     </HomeSidebarWrapper>

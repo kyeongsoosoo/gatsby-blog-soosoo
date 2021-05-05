@@ -5,6 +5,7 @@ import { flexCenter } from '../../../../style/styleUtil';
 import { FloatingBox } from '../../../../Element/FloatingBox';
 import TagItem from '../../../TagItem/TagItem';
 import { Link } from 'gatsby';
+import NamingService from '../../../../utils/NamingService';
 
 export default function PostItem({ title, excerpt = '', tagList, slug }) {
   return (
@@ -14,7 +15,9 @@ export default function PostItem({ title, excerpt = '', tagList, slug }) {
         <PostItemDesc>{excerpt}</PostItemDesc>
         <PostItemTagBox>
           {tagList.map(tag => (
-            <TagItem key={tag} slug={`${tag}/1`}>{`#${tag}`}</TagItem>
+            <TagItem key={tag} slug={NamingService.makeCategorySlug(tag)}>
+              {NamingService.makeHashTag(tag)}
+            </TagItem>
           ))}
         </PostItemTagBox>
       </PostItemWrapper>
