@@ -11,6 +11,7 @@ export default function HomeSideBar({ totalTagList }) {
       <CategoryBlock>
         {totalTagList.map(item => (
           <TagItem
+            slug={`${item.tagName}/1`}
             key={item.tagName}
           >{`#${item.tagName}(${item.count})`}</TagItem>
         ))}

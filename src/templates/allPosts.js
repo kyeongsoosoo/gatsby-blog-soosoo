@@ -33,6 +33,7 @@ export default function AllPosts({ pageContext, data }) {
           title={post.node.frontmatter.title}
           excerpt={post.node.frontmatter.excerpt}
           tagList={post.node.frontmatter.tagList}
+          slug={post.node.frontmatter.slug}
         />
       ))}
       <Pagination

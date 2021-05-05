@@ -4,20 +4,27 @@ import { titleCss, typo2 } from '../../../../style/typo';
 import { flexCenter } from '../../../../style/styleUtil';
 import { FloatingBox } from '../../../../Element/FloatingBox';
 import TagItem from '../../../TagItem/TagItem';
+import { Link } from 'gatsby';
 
-export default function PostItem({ title, excerpt = '', tagList }) {
+export default function PostItem({ title, excerpt = '', tagList, slug }) {
   return (
-    <PostItemWrapper>
-      <PostItemTitle>{title}</PostItemTitle>
-      <PostItemDesc>{excerpt}</PostItemDesc>
-      <PostItemTagBox>
-        {tagList.map(tag => (
-          <TagItem key={tag}>{`#${tag}`}</TagItem>
-        ))}
-      </PostItemTagBox>
-    </PostItemWrapper>
+    <PostItemLinkWrapper to={`/${slug}`}>
+      <PostItemWrapper>
+        <PostItemTitle>{title}</PostItemTitle>
+        <PostItemDesc>{excerpt}</PostItemDesc>
+        <PostItemTagBox>
+          {tagList.map(tag => (
+            <TagItem key={tag} slug={`${tag}/1`}>{`#${tag}`}</TagItem>
+          ))}
+        </PostItemTagBox>
+      </PostItemWrapper>
+    </PostItemLinkWrapper>
   );
 }
+
+const PostItemLinkWrapper = styled(Link)`
+  width: 100%;
+`;
 
 const PostItemWrapper = styled(FloatingBox)`
   --item-width: 80%;

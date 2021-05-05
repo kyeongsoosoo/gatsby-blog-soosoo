@@ -1,10 +1,15 @@
+import { Link } from 'gatsby';
 import React from 'react';
 import styled from 'styled-components';
 import { FloatingBox } from '../../Element/FloatingBox';
 import { flexCenter } from '../../style/styleUtil';
 
-export default function TagItem({ children }) {
-  return <TagWrapper>{children}</TagWrapper>;
+export default function TagItem({ children, slug }) {
+  const t = event => {
+    event.preventDefault();
+    window.location.href = `${window.location.origin}/${slug}`;
+  };
+  return <TagWrapper onClick={t}>{children}</TagWrapper>;
 }
 
 const TagWrapper = styled(FloatingBox)`
