@@ -1,13 +1,17 @@
 import React from 'react';
 import styled from 'styled-components';
+import Title from '../../../Element/Title';
 import { titleCss } from '../../../style/typo';
+import NamingService from '../../../utils/NamingService';
 import PostItem from './PostItem';
 
 export default function HomeMain({ children, category }) {
   return (
     <HomeMainWrapper>
       <HomeMainTitle>
-        {category ? `${category[0].toUpperCase() + category.slice(1)}` : 'Home'}
+        <Title isColor={true}>
+          {category ? NamingService.makeTitle(category) : 'Home'}
+        </Title>
       </HomeMainTitle>
       {children}
     </HomeMainWrapper>

@@ -36,7 +36,8 @@ const GlobalStyle = createGlobalStyle`
         --category-border-radius: 15px;
         --category-padding : 30px 0;
         
-        
+        --white-space-height: 30px;
+        --white-space-width: 30px;
         
     }
 

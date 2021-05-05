@@ -7,12 +7,15 @@ import TagItem from '../../../TagItem/TagItem';
 import { Link } from 'gatsby';
 import NamingService from '../../../../utils/NamingService';
 import P from '../../../../Element/P';
+import Title from '../../../../Element/Title';
 
 export default function PostItem({ title, excerpt = '', tagList, slug }) {
   return (
     <PostItemLinkWrapper to={`/${slug}`}>
       <PostItemWrapper>
-        <PostItemTitle>{title}</PostItemTitle>
+        <PostItemTitle>
+          <Title>{title}</Title>
+        </PostItemTitle>
         <PostItemDesc>
           <P>{excerpt}</P>
         </PostItemDesc>

@@ -1,12 +1,16 @@
 import React from 'react';
 import styled from 'styled-components';
+import Title from '../../Element/Title';
+import { flexCenter } from '../../style/styleUtil';
 import { titleCss } from '../../style/typo';
 import ThemeToggler from '../ThemeToggler';
 
 export default function Header({ children }) {
   return (
     <HeaderWrapper>
-      <HeaderLeftBox>So Blog</HeaderLeftBox>
+      <HeaderLeftBox>
+        <Title isColor={true}>Soo Blog</Title>
+      </HeaderLeftBox>
       <HeaderRightBox>
         <ThemeToggler />
       </HeaderRightBox>
@@ -25,7 +29,12 @@ const HeaderWrapper = styled.header`
 `;
 
 const HeaderLeftBox = styled.div`
-  ${titleCss}
+  --left-box-width: 300px;
+  --left-box-height: 200px;
+
+  ${flexCenter}
+  width: var(--left-box-width);
+  height: var(--left-box-height);
 `;
 
 const HeaderRightBox = styled.div``;

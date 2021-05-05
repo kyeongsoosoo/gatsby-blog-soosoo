@@ -1,13 +1,16 @@
 import React from 'react';
 import styled from 'styled-components';
 import P from '../../Element/P';
+import Title from '../../Element/Title';
 import { typo1, typo2 } from '../../style/typo';
 
 export default function IntroBubble() {
   return (
     <IntroBubbleWrapper>
       <IntroBubbleImage />
-      <IntroBubbleName>KyeongSoo</IntroBubbleName>
+      <IntroBubbleName>
+        <Title>Soo Soo</Title>
+      </IntroBubbleName>
       <IntroBubbleDesc>
         <P>테스트 중!</P>
       </IntroBubbleDesc>
