@@ -2,6 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import { titleCss, typo2 } from '../../../../style/typo';
 import { flexCenter } from '../../../../style/styleUtil';
+import { FloatingBox } from '../../../../Element/FloatingBox';
+import TagItem from '../../../TagItem/TagItem';
 
 export default function PostItem({ title, excerpt = '', tagList }) {
   return (
@@ -10,14 +12,14 @@ export default function PostItem({ title, excerpt = '', tagList }) {
       <PostItemDesc>{excerpt}</PostItemDesc>
       <PostItemTagBox>
         {tagList.map(tag => (
-          <PostItemTag key={tag}>{`#${tag}`}</PostItemTag>
+          <TagItem key={tag}>{`#${tag}`}</TagItem>
         ))}
       </PostItemTagBox>
     </PostItemWrapper>
   );
 }
 
-const PostItemWrapper = styled.li`
+const PostItemWrapper = styled(FloatingBox)`
   --item-width: 80%;
   --item-max-width: 700px;
   --item-height: 200px;
@@ -63,22 +65,4 @@ const PostItemTagBox = styled.div`
   width: var(--tag-box-width);
   height: var(--tag-box-height);
   padding: var(--tag-box-padding);
-`;
-
-const PostItemTag = styled.div`
-  --tag-padding: auto;
-  --tag-width: 80px;
-  --tag-height: 40px;
-  --tag-radius: 5px;
-  --tag-margin-left: 15px;
-
-  ${flexCenter}
-  width: var(--tag-width);
-  height: var(--tag-height);
-  padding: var(--tag-padding);
-  border-radius: var(--tag-radius);
-  background-color: var(--tag-background-color);
-  & + & {
-    margin-left: var(--tag-margin-left);
-  }
 `;

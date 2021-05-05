@@ -2,12 +2,19 @@ import React from 'react';
 import styled from 'styled-components';
 import CategoryBlock from '../../CategoryBlock';
 import IntroBubble from '../../IntroBubble';
+import TagItem from '../../TagItem/TagItem';
 
-export default function HomeSideBar() {
+export default function HomeSideBar({ totalTagList }) {
   return (
     <HomeSidebarWrapper>
       <IntroBubble />
-      <CategoryBlock />
+      <CategoryBlock>
+        {totalTagList.map(item => (
+          <TagItem
+            key={item.tagName}
+          >{`#${item.tagName}(${item.count})`}</TagItem>
+        ))}
+      </CategoryBlock>
     </HomeSidebarWrapper>
   );
 }

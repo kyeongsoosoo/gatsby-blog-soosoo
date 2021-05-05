@@ -3,10 +3,12 @@ import styled from 'styled-components';
 import { titleCss } from '../../../style/typo';
 import PostItem from './PostItem';
 
-export default function HomeMain({ children }) {
+export default function HomeMain({ children, category }) {
   return (
     <HomeMainWrapper>
-      <HomeMainTitle>Home</HomeMainTitle>
+      <HomeMainTitle>
+        {category ? `${category[0].toUpperCase() + category.slice(1)}` : 'Home'}
+      </HomeMainTitle>
       {children}
     </HomeMainWrapper>
   );

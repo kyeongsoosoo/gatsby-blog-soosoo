@@ -4,12 +4,12 @@ import Layout from '../layout';
 import HomeMain from './HomeMain';
 import HomeSideBar from './HomeSideBar';
 
-export default function HomeLayout({ children }) {
+export default function HomeLayout({ children, totalTagList, category }) {
   return (
     <Layout>
       <HomeWrapper>
-        <HomeMain>{children}</HomeMain>
-        <HomeSideBar></HomeSideBar>
+        <HomeMain category={category}>{children}</HomeMain>
+        <HomeSideBar totalTagList={totalTagList}></HomeSideBar>
       </HomeWrapper>
     </Layout>
   );

@@ -31,8 +31,10 @@ const GlobalStyle = createGlobalStyle`
         --bb-border-radius: 15px;
 
         --category-block-width: 200px;
+        --category-block-height: 500px;
         --category-block-min-height: 500px;
         --category-border-radius: 15px;
+        --category-padding : 30px 0;
         
         
         
@@ -52,7 +54,7 @@ const GlobalStyle = createGlobalStyle`
         --title-color: #00958C;
 
         --bb-background-color: #96FAC3;
-        --category-background-color: #96FAC3;
+        --category-background-color: #BEB8FD;
 
         --item-background-color: white;
         
@@ -62,6 +64,11 @@ const GlobalStyle = createGlobalStyle`
 
         --pagination-background-color: #6B64D6;
         --pagination-background-color-disabled: #BEB8FD;
+
+        --floating-webkit-box-shadow: 0px 1px 9px 2px rgba(99,91,99,1);
+        --floating-moz-box-shadow: 0px 1px 9px 2px rgba(99,91,99,1);
+        --floating-box-shadow:0px 1px 9px 2px rgba(99,91,99,1);
+
     }
 
     body.dark{
@@ -76,10 +83,14 @@ const GlobalStyle = createGlobalStyle`
 
         --item-background-color: #282D35;
 
-        --tag-background-color: #CAFCDC;
+        --tag-background-color: #EAE7FE;
 
         --pagination-background-color: #BEB8FD;
         --pagination-background-color-disabled: #EAE7FE;
+
+        --floating-webkit-box-shadow: 0px 1px 9px 3px rgba(214,214,214,0.67);
+        --floating-moz-box-shadow: 0px 1px 9px 3px rgba(214,214,214,0.67);
+        --floating-box-shadow: 0px 1px 9px 3px rgba(214,214,214,0.67);
 
         background-color: #101521;
         color: white;

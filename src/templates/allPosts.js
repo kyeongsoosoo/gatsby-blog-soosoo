@@ -6,7 +6,12 @@ import HomeLayout from '../components/HomeLayout/HomeLayout';
 import Pagination from '../components/Pagination';
 
 export default function AllPosts({ pageContext, data }) {
-  const { currentPage, numPages, category = false } = pageContext;
+  const {
+    currentPage,
+    numPages,
+    category = false,
+    countedTagList,
+  } = pageContext;
   const isFirst = currentPage === 1;
   const isLast = currentPage === numPages;
   const prevPage = category
@@ -21,7 +26,7 @@ export default function AllPosts({ pageContext, data }) {
   const posts = data.allMdx.edges;
 
   return (
-    <HomeLayout>
+    <HomeLayout totalTagList={countedTagList} category={category}>
       {posts.map(post => (
         <PostItem
           key={post.node.frontmatter.slug}

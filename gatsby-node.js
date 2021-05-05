@@ -38,6 +38,7 @@ exports.createPages = async function ({ actions, graphql }) {
         skip: i * postPerPage,
         numPages,
         currentPage: i + 1,
+        countedTagList,
       },
     });
   });
@@ -56,20 +57,20 @@ exports.createPages = async function ({ actions, graphql }) {
           numPages,
           currentPage: i + 1,
           category: tag.tagName,
+          countedTagList,
         },
       }),
     );
   });
-};
 
-//   //Create single blog posts
-//   data.allMdx.edges.forEach(edge => {
-//     const slug = edge.node.frontmatter.slug;
-//     const id = edge.node.id;
-//     actions.createPage({
-//       path: slug,
-//       component: require.resolve(`./src/templates/singlePost.js`),
-//       context: { id },
-//     });
-//   });
-// }
+  //Create single blog posts
+  data.allMdx.edges.forEach(edge => {
+    const slug = edge.node.frontmatter.slug;
+    const id = edge.node.id;
+    actions.createPage({
+      path: slug,
+      component: require.resolve(`./src/templates/singlePost.js`),
+      context: { id },
+    });
+  });
+};
