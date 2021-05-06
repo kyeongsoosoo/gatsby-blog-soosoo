@@ -1,11 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
+import Location from '../../../utils/LocationService';
 import NamingService from '../../../utils/NamingService';
+
 import CategoryBlock from '../../CategoryBlock';
 import IntroBubble from '../../IntroBubble';
 import TagItem from '../../TagItem/TagItem';
 
 export default function HomeSideBar({ totalTagList }) {
+  const selectedTag = new Location().getTag();
+
   return (
     <HomeSidebarWrapper>
       <IntroBubble />
@@ -14,6 +18,7 @@ export default function HomeSideBar({ totalTagList }) {
           <TagItem
             slug={NamingService.makeCategorySlug(item.tagName)}
             key={item.tagName}
+            isSelected={selectedTag === item.tagName}
           >
             {NamingService.makeHashTag(item.tagName, item.count)}
           </TagItem>

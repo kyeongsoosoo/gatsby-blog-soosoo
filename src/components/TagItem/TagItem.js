@@ -1,17 +1,18 @@
 import { Link } from 'gatsby';
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { FloatingBox } from '../../Element/FloatingBox';
 import P from '../../Element/P';
 import { flexCenter } from '../../style/styleUtil';
 
-export default function TagItem({ children, slug }) {
+export default function TagItem({ children, slug, isSelected = false }) {
   const handleTagLink = event => {
     event.preventDefault();
     window.location.href = `${window.location.origin}/${slug}`;
   };
   return (
-    <TagWrapper onClick={handleTagLink}>
+    <TagWrapper onClick={handleTagLink} isSelected={isSelected}>
+      {console.log(isSelected)}
       <P>{children}</P>
     </TagWrapper>
   );
@@ -29,12 +30,16 @@ const TagWrapper = styled(FloatingBox)`
   flex-shrink: 0;
 
   ${flexCenter}
+
+  background-color: ${({ isSelected }) =>
+    isSelected ? `black;` : 'var(--tag-background-color);'}
+
   min-width: var(--tag-min-width);
   max-width: var(--tag-max-width);
   height: var(--tag-height);
   padding: var(--tag-padding);
   border-radius: var(--tag-radius);
-  background-color: var(--tag-background-color);
+
   margin-bottom: var(--tag-margin-bottom);
   & + & {
     margin-left: var(--tag-margin-left);

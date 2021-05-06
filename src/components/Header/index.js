@@ -1,3 +1,4 @@
+import { Link } from 'gatsby';
 import React from 'react';
 import styled from 'styled-components';
 import Title from '../../Element/Title';
@@ -9,7 +10,9 @@ export default function Header({ children }) {
   return (
     <HeaderWrapper>
       <HeaderLeftBox>
-        <Title isColor={true}>Soo Blog</Title>
+        <Link to="/">
+          <Title isColor={true}>Soo Blog</Title>
+        </Link>
       </HeaderLeftBox>
       <HeaderRightBox>
         <ThemeToggler />
