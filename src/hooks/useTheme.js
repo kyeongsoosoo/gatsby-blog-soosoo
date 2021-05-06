@@ -18,6 +18,7 @@ export default function useTheme() {
   const handleThemeToggle = () => {
     const toggledTheme = theme === 'light' ? 'dark' : 'light';
     setTheme(toggledTheme);
+    window.location.reload(); //코드 블록 다크모드 적용을 위한 새로고침
     themeHandler(toggledTheme);
   };
 
@@ -31,5 +32,5 @@ export default function useTheme() {
     themeHandler(savedTheme);
   }, []);
 
-  return { theme, handleThemeToggle };
+  return { theme: theme, handleThemeToggle };
 }

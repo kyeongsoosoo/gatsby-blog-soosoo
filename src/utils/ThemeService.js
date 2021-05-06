@@ -17,6 +17,10 @@ class Theme {
     this.bodyElement.classList.remove(dt);
     localStorage.removeItem('theme');
   }
+
+  checkTheme() {
+    return localStorage.getItem('theme');
+  }
 }
 
 export default new Theme();
