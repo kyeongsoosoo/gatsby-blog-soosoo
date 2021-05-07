@@ -6,7 +6,9 @@
 
 module.exports = {
   siteMetadata: {
-    title: `soo`,
+    title: `SOO BLOG`,
+    nickname: 'Soo Soo',
+    author: 'Soo',
     githuburl: `https://github.com/kyeongsoosoo`,
     profileURL: `/src/images/profile.jpg`,
   },

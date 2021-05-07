@@ -4,6 +4,7 @@ import Layout from '../components/layout';
 import PostItem from '../components/HomeLayout/HomeMain/PostItem';
 import HomeLayout from '../components/HomeLayout/HomeLayout';
 import Pagination from '../components/Pagination';
+import Seo from '../components/Seo';
 
 export default function AllPosts({ pageContext, data }) {
   const {
@@ -27,6 +28,7 @@ export default function AllPosts({ pageContext, data }) {
 
   return (
     <HomeLayout totalTagList={countedTagList} category={category}>
+      <Seo />
       {posts.map(post => (
         <PostItem
           key={post.node.frontmatter.slug}

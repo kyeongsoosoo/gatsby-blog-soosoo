@@ -8,36 +8,20 @@ import Title from '../../Element/Title';
 import { typo1, typo2 } from '../../style/typo';
 import Image from 'gatsby-image';
 import GithubIcon from './GithubIcon';
+import useSiteInfo from '../../hooks/useSiteInfo';
 
-export default function IntroBubble() {
-  const data = useStaticQuery(graphql`
-    query MyQuery {
-      site {
-        id
-        siteMetadata {
-          githuburl
-        }
-      }
-      file(name: { eq: "propfile" }) {
-        id
-        childImageSharp {
-          fixed(width: 120, height: 120) {
-            ...GatsbyImageSharpFixed
-          }
-        }
-      }
-    }
-  `);
+function IntroBubble() {
+  const { profileImageURL, nickname, githubURL } = useSiteInfo();
   return (
     <IntroBubbleWrapper>
-      <IntroBubbleImage fixed={data.file.childImageSharp.fixed} />
+      <IntroBubbleImage fixed={profileImageURL} />
       <IntroBubbleName>
-        <Title>Soo Soo</Title>
+        <Title>{nickname}</Title>
       </IntroBubbleName>
       <IntroBubbleDesc>
         <P>테스트 중!</P>
       </IntroBubbleDesc>
-      <a href={data.site.siteMetadata.githuburl}>
+      <a href={githubURL}>
         <GithubIcon />
       </a>
     </IntroBubbleWrapper>
@@ -74,3 +58,5 @@ const IntroBubbleName = styled.h1`
 const IntroBubbleDesc = styled.h2`
   ${typo2}
 `;
+
+export default React.memo(IntroBubble);

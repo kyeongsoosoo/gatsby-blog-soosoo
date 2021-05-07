@@ -5,10 +5,15 @@ import { WhiteSpace } from '../Element/WhiteSpace';
 import Layout from '../components/layout';
 import styled from 'styled-components';
 import Title from '../Element/Title';
+import Seo from '../components/Seo';
 
 const singlePost = ({ data }) => {
   return (
     <Layout>
+      <Seo
+        title={data.mdx.frontmatter.title}
+        description={data.mdx.frontmatter.excerpt}
+      />
       <SinglePostTemplateWrapper>
         <Title>{data.mdx.frontmatter.title}</Title>
         <WhiteSpace />
