@@ -1,14 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
-import { titleCss, typo2 } from '../../../../style/typo';
-import { flexCenter } from '../../../../style/styleUtil';
-import { FloatingBox } from '../../../../Element/FloatingBox';
-import TagItem from '../../../TagItem/TagItem';
-import { Link } from 'gatsby';
-import NamingService from '../../../../utils/NamingService';
-import P from '../../../../Element/P';
-import Title from '../../../../Element/Title';
 
+import { Link } from 'gatsby';
+
+import Title from '../../Element/Title';
+import P from '../../Element/P';
+import NamingService from '../../utils/NamingService';
+import { FloatingBox } from '../../Element/FloatingBox';
+import { titleCss, typo2 } from '../../style/typo';
+
+import TagItem from '../TagItem/TagItem';
 export default function PostItem({ title, excerpt = '', tagList, slug }) {
   return (
     <PostItemLinkWrapper to={`/${slug}`}>
@@ -17,12 +18,12 @@ export default function PostItem({ title, excerpt = '', tagList, slug }) {
           <Title>{title}</Title>
         </PostItemTitle>
         <PostItemDesc>
-          <P>{excerpt}</P>
+          <P isGray={true}>{excerpt}</P>
         </PostItemDesc>
         <PostItemTagBox>
           {tagList.map(tag => (
             <TagItem key={tag} slug={NamingService.makeCategorySlug(tag)}>
-              <P>{NamingService.makeHashTag(tag)}</P>
+              {NamingService.makeHashTag(tag)}
             </TagItem>
           ))}
         </PostItemTagBox>

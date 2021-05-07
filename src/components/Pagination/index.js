@@ -8,10 +8,10 @@ export default function Pagination({ isFirst, isLast, prevPage, nextPage }) {
   return (
     <PaginationWrapper isFirst={isFirst} isLast={isLast}>
       <PaginationElement to={prevPage}>
-        <P>Prev Page</P>
+        <P type="tag">Prev Page</P>
       </PaginationElement>
       <PaginationElement to={nextPage}>
-        <P>Next Page</P>
+        <P type="tag">Next Page</P>
       </PaginationElement>
     </PaginationWrapper>
   );

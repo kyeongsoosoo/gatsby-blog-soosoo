@@ -23,5 +23,5 @@ const T = styled.h1`
     }
   }}
   color: ${({ isColor }) =>
-    isColor ? `var(--title-color)` : `var(--font-color)`}
+    isColor ? `var(--title-color)` : `var(--post-title-color)`}
 `;

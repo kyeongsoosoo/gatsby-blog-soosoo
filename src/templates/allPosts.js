@@ -1,10 +1,11 @@
 import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import Layout from '../components/layout';
-import PostItem from '../components/HomeLayout/HomeMain/PostItem';
+
 import HomeLayout from '../components/HomeLayout/HomeLayout';
 import Pagination from '../components/Pagination';
 import Seo from '../components/Seo';
+import PostItem from '../components/PostItem';
 
 export default function AllPosts({ pageContext, data }) {
   const {

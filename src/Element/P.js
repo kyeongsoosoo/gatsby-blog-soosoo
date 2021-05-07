@@ -19,11 +19,19 @@ const StyledP = styled.p`
       color: gray;
     `}
 
-  font-size: ${({ type }) => {
+  ${({ type }) => {
     switch (type) {
       case 'normal':
-        return 'var(--p-normal-size)';
-        break;
+        return css`
+          font-size: var(--p-normal-size);
+        `;
+
+      case 'tag':
+        return css`
+          font-size: var(--tag-size);
+          font-weight: var(--tag-weight);
+          color: var(--tag-color);
+        `;
 
       default:
         break;

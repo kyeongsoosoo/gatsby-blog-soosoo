@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import Title from '../../../Element/Title';
 import { titleCss } from '../../../style/typo';
 import NamingService from '../../../utils/NamingService';
-import PostItem from './PostItem';
 
 export default function HomeMain({ children, category }) {
   return (
@@ -32,7 +31,7 @@ const HomeMainWrapper = styled.div`
 const HomeMainTitle = styled.div`
   --home-main-title-margin-top: 50px;
   --home-main-title-size: 48px;
-  --home-main-border-bottom: 2px solid black;
+
   --home-main-letter-spacing: 1.5px;
   --home-main-margin-bottom: 40px;
 

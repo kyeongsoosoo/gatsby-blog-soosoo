@@ -15,7 +15,11 @@ export default function ThemeToggler() {
 }
 
 const ThemeTogglerWrapper = styled(FloatingBox)`
+  --toggler-border-radius: 10px;
+
   ${flexCenter}
   width: var(--theme-toggler-width);
   height: var(--theme-toggler-height);
+  border-radius: var(--toggler-border-radius);
+  background-color: var(--toggler-background-color);
 `;

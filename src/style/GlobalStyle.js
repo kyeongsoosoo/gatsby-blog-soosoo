@@ -11,6 +11,10 @@ const GlobalStyle = createGlobalStyle`
         --title-weight: 700;
         --title-size: 42px;
 
+        --tag-weight: 700;
+        --tag-size: 14px;
+
+
         --typo1-weight: 700;
         --typo1-size: 28px;
 
@@ -51,6 +55,11 @@ const GlobalStyle = createGlobalStyle`
         --main-gradient-background-color:#7ee8fa;
         --main-gradient-background-image:linear-gradient(315deg, #7ee8fa 0%, #80ff72 74%);
 
+        --toggler-background-color: white;
+
+        --post-title-color: black;
+
+        --tag-color: white;
 
         --title-color: #00958C;
 
@@ -60,6 +69,7 @@ const GlobalStyle = createGlobalStyle`
         --item-background-color: white;
         
         --tag-background-color: #96FAC3;
+        --tag-background-color-selected:#007478; 
 
         background-color: rgb(248,249,250);
 
@@ -72,6 +82,10 @@ const GlobalStyle = createGlobalStyle`
 
         --template-background-color: white;
 
+        --home-main-border-bottom: 2px solid black;
+
+       
+
         --p-color: black;
     }
 
@@ -79,6 +93,12 @@ const GlobalStyle = createGlobalStyle`
 
         --main-gradient-background-color: #9fa4c4;
         --main-gradient-background-image:linear-gradient(315deg, #9fa4c4 0%, #9e768f 74%);
+
+        --post-title-color: white;
+
+        --toggler-background-color: gray;
+
+        --tag-color: black;
 
         --title-color: #96FAC3;
 
@@ -88,6 +108,7 @@ const GlobalStyle = createGlobalStyle`
         --item-background-color: #282D35;
 
         --tag-background-color: #EAE7FE;
+        --tag-background-color-selected: #ADA6FB;
 
         --pagination-background-color: #BEB8FD;
         --pagination-background-color-disabled: #EAE7FE;
@@ -98,7 +119,10 @@ const GlobalStyle = createGlobalStyle`
 
         --template-background-color: #2b333f;
 
+        --home-main-border-bottom: 2px solid white;
+
         --p-color: white;
+
 
         background-color: #101521;
         color: white;

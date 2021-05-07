@@ -9,15 +9,18 @@ import { typo1, typo2 } from '../../style/typo';
 import Image from 'gatsby-image';
 import GithubIcon from './GithubIcon';
 import useSiteInfo from '../../hooks/useSiteInfo';
+import { Link } from 'gatsby';
 
 function IntroBubble() {
   const { profileImageURL, nickname, githubURL } = useSiteInfo();
   return (
     <IntroBubbleWrapper>
       <IntroBubbleImage fixed={profileImageURL} />
-      <IntroBubbleName>
-        <Title>{nickname}</Title>
-      </IntroBubbleName>
+      <Link to="/about">
+        <IntroBubbleName>
+          <Title>{nickname}</Title>
+        </IntroBubbleName>
+      </Link>
       <IntroBubbleDesc>
         <P>테스트 중!</P>
       </IntroBubbleDesc>

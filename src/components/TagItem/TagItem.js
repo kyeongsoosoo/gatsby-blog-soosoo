@@ -13,7 +13,7 @@ export default function TagItem({ children, slug, isSelected = false }) {
   return (
     <TagWrapper onClick={handleTagLink} isSelected={isSelected}>
       {console.log(isSelected)}
-      <P>{children}</P>
+      <P type="tag">{children}</P>
     </TagWrapper>
   );
 }
@@ -32,7 +32,9 @@ const TagWrapper = styled(FloatingBox)`
   ${flexCenter}
 
   background-color: ${({ isSelected }) =>
-    isSelected ? `black;` : 'var(--tag-background-color);'}
+    isSelected
+      ? `var(--tag-background-color-selected);`
+      : 'var(--tag-background-color);'}
 
   min-width: var(--tag-min-width);
   max-width: var(--tag-max-width);
