@@ -9,7 +9,7 @@ import { Code } from './Code';
 import useTheme from '../hooks/useTheme';
 
 export default function Layout({ children }) {
-  const t = window.location.pathname.split('/');
+  
   const components = {
     pre: preProps => {
       const props = preToCodeBlock(preProps);
@@ -22,8 +22,7 @@ export default function Layout({ children }) {
   };
   return (
     <MDXProvider components={components}>
-      {console.log(window.location.pathname)}
-      {console.log(t)}
+  
       <GlobalStyle />
       <Header>Hi</Header>
       <ColorWall />

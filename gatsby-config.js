@@ -5,6 +5,11 @@
  */
 
 module.exports = {
+  siteMetadata: {
+    title: `soo`,
+    githuburl: `https://github.com/kyeongsoosoo`,
+    profileURL: `/src/images/profile.jpg`,
+  },
   /* Your site config here */
   plugins: [
     `gatsby-plugin-styled-components`,
@@ -19,13 +24,28 @@ module.exports = {
         display: 'swap',
       },
     },
+    // {
+    //   resolve: `gatsby-source-filesystem`,
+    //   options: {
+    //     name: `pages`,
+    //     path: `${__dirname}/src/pages`,
+    //   },
+    // },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `src`,
-        path: `${__dirname}/src/`,
+        name: `posts`,
+        path: `${__dirname}/src/posts`,
       },
     },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `images`,
+        path: `${__dirname}/src/images`,
+      },
+    },
+    `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
     {

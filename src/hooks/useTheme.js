@@ -1,4 +1,5 @@
 import React, { useLayoutEffect, useState } from 'react';
+import Location from '../utils/LocationService';
 import setTheme from '../utils/ThemeService';
 import Theme from '../utils/ThemeService';
 
@@ -18,7 +19,7 @@ export default function useTheme() {
   const handleThemeToggle = () => {
     const toggledTheme = theme === 'light' ? 'dark' : 'light';
     setTheme(toggledTheme);
-    window.location.reload(); //코드 블록 다크모드 적용을 위한 새로고침
+    new Location().makeReload(); //코드 블록 다크모드 적용을 위한 새로고침
     themeHandler(toggledTheme);
   };
 

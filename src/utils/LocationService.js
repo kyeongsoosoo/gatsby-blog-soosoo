@@ -13,4 +13,8 @@ export default class Location {
     const list = this.getParamList();
     return list[1];
   };
+
+  makeReload = () => {
+    this.location.reload();
+  };
 }
