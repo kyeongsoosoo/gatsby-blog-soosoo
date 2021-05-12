@@ -29,6 +29,11 @@ const HeaderWrapper = styled.header`
   height: var(--header-height);
   padding: var(--header-padding);
   margin-bottom: var(--header-margin-bottom);
+
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
+  z-index: 50;
 `;
 
 const HeaderLeftBox = styled.div`

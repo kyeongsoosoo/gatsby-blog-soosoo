@@ -6,6 +6,11 @@ export default function ColorWall() {
 }
 
 const ColorWallWrapper = styled.div`
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
+  z-index: 40;
+
   width: var(--header-width);
   height: var(--header-height);
   background-color: var(--main-gradient-background-color);
