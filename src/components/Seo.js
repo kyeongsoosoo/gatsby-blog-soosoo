@@ -42,6 +42,10 @@ export default function Seo({
                 content: metaDescription,
               },
               {
+                property: `author`,
+                content: metaAuthor,
+              },
+              {
                 property: `og:image`,
                 content: metaImage,
               },

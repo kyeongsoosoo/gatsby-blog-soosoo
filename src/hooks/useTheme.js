@@ -1,6 +1,5 @@
 import React, { useLayoutEffect, useState } from 'react';
 import Location from '../utils/LocationService';
-import setTheme from '../utils/ThemeService';
 import Theme from '../utils/ThemeService';
 
 export default function useTheme() {

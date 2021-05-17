@@ -1,6 +1,5 @@
-import { Link } from 'gatsby';
 import React from 'react';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import { FloatingBox } from '../../Element/FloatingBox';
 import P from '../../Element/P';
 import { flexCenter } from '../../style/styleUtil';

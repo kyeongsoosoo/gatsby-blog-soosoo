@@ -6,10 +6,8 @@ import { preToCodeBlock } from 'mdx-utils';
 import './language-tabs.css';
 import Header from './Header';
 import { Code } from './Code';
-import useTheme from '../hooks/useTheme';
 
 export default function Layout({ children }) {
-  
   const components = {
     pre: preProps => {
       const props = preToCodeBlock(preProps);
@@ -22,7 +20,6 @@ export default function Layout({ children }) {
   };
   return (
     <MDXProvider components={components}>
-  
       <GlobalStyle />
       <Header>Hi</Header>
       <ColorWall />

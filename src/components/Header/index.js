@@ -3,7 +3,6 @@ import React from 'react';
 import styled from 'styled-components';
 import Title from '../../Element/Title';
 import { flexCenter } from '../../style/styleUtil';
-import { titleCss } from '../../style/typo';
 import ThemeToggler from '../ThemeToggler';
 
 export default function Header({ children }) {

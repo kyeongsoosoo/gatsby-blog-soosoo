@@ -1,6 +1,3 @@
-import { graphql } from 'gatsby';
-import { useStaticQuery } from 'gatsby';
-import { StaticImage } from 'gatsby-plugin-image';
 import React from 'react';
 import styled from 'styled-components';
 import P from '../../Element/P';
