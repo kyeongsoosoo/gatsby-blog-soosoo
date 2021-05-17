@@ -18,6 +18,7 @@ export default function Seo({
           description || data.site.siteMetadata.description;
         const metaTitle = title || data.site.siteMetadata.title;
         const metaAuthor = author || data.site.siteMetadata.author;
+        const metaImage = image || data.site.siteMetadata.image;
         const metaUrl = url || data.site.siteMetadata.url;
         const metaKeywords = keywords || [
           'gatsby blog',
@@ -39,6 +40,10 @@ export default function Seo({
               {
                 property: `og:description`,
                 content: metaDescription,
+              },
+              {
+                property: `og:image`,
+                content: metaImage,
               },
               {
                 property: `og:type`,
@@ -70,6 +75,7 @@ const detailsQuery = graphql`
         title
         description
         author
+        image
       }
     }
   }

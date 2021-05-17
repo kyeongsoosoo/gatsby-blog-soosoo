@@ -1,5 +1,6 @@
 import React from 'react';
 import { graphql } from 'gatsby';
+import Img from 'gatsby-image';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import { WhiteSpace } from '../Element/WhiteSpace';
 import Layout from '../components/layout';
@@ -8,13 +9,19 @@ import Title from '../Element/Title';
 import Seo from '../components/Seo';
 
 const singlePost = ({ data }) => {
+  const imageData = data.mdx.frontmatter.imageURL.childImageSharp.fluid.src;
+
+  const seoImage = data.mdx.frontmatter.imageURL.publicURL;
+
   return (
     <Layout>
       <Seo
         title={data.mdx.frontmatter.title}
         description={data.mdx.frontmatter.excerpt}
+        image={seoImage}
       />
       <SinglePostTemplateWrapper>
+        <TopImageContainer src={imageData} />
         <Title>{data.mdx.frontmatter.title}</Title>
         <WhiteSpace />
         <MDXRenderer>{data.mdx.body}</MDXRenderer>
@@ -159,6 +166,11 @@ const SinglePostTemplateWrapper = styled.div`
     padding: 0.5rem;
   }
 `;
+const TopImageContainer = styled.img`
+  position: relative;
+  width: 100%;
+  height: 30vh;
+`;
 
 export const pageQuery = graphql`
   query SinglePostQuery($id: String!) {
@@ -169,6 +181,14 @@ export const pageQuery = graphql`
         excerpt
         slug
         title
+        imageURL {
+          publicURL
+          childImageSharp {
+            fluid {
+              src
+            }
+          }
+        }
       }
     }
   }

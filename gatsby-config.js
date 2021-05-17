@@ -11,6 +11,7 @@ module.exports = {
     author: 'Soo',
     githuburl: `https://github.com/kyeongsoosoo`,
     profileURL: `/src/images/profile.jpg`,
+    image: `/src/images/profile.jpg`,
   },
   /* Your site config here */
   plugins: [
