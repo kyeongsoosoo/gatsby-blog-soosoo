@@ -9,7 +9,7 @@ export default class Location {
 
   getTag = () => {
     const list = this.getParamList();
-    return list[1];
+    return decodeURIComponent(list[1]);
   };
 
   makeReload = () => {

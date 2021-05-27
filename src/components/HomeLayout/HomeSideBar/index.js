@@ -14,6 +14,7 @@ export default function HomeSideBar({ totalTagList }) {
     <HomeSidebarWrapper>
       <IntroBubble />
       <CategoryBlock>
+        {console.log(selectedTag)}
         {totalTagList.map(item => (
           <TagItem
             slug={NamingService.makeCategorySlug(item.tagName)}

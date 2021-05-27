@@ -11,14 +11,13 @@ export default function TagItem({ children, slug, isSelected = false }) {
   };
   return (
     <TagWrapper onClick={handleTagLink} isSelected={isSelected}>
-      {console.log(isSelected)}
       <P type="tag">{children}</P>
     </TagWrapper>
   );
 }
 
 const TagWrapper = styled(FloatingBox)`
-  --tag-padding: auto;
+  --tag-padding: 3px 3px;
   --tag-min-width: 80px;
   --tag-max-width: 180px;
   --tag-height: 40px;

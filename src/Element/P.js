@@ -32,6 +32,10 @@ const StyledP = styled.p`
           font-weight: var(--tag-weight);
           color: var(--tag-color);
         `;
+      case 'theme-toggle':
+        return css`
+          font-weight: var(--typo1-weight);
+        `;
 
       default:
         break;

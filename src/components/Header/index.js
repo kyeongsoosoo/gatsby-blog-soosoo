@@ -44,4 +44,13 @@ const HeaderLeftBox = styled.div`
   height: var(--left-box-height);
 `;
 
-const HeaderRightBox = styled.div``;
+const HeaderRightBox = styled.div`
+  --right-box-width: 200px;
+  --right-box-height: 200px;
+  --right-box-margin-top: 10px;
+
+  ${flexCenter}
+  width: var(--right-box-width);
+  height: var(--right-box-height);
+  margin-top: var(--right-box-margin-top);
+`;

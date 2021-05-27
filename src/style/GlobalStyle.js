@@ -38,7 +38,7 @@ const GlobalStyle = createGlobalStyle`
         --category-block-height: 500px;
         --category-block-min-height: 500px;
         --category-border-radius: 15px;
-        --category-padding : 30px 0;
+        --category-padding : 30px 10px;
         
         --white-space-height: 30px;
         --white-space-width: 30px;
@@ -55,7 +55,7 @@ const GlobalStyle = createGlobalStyle`
         --main-gradient-background-color:#7ee8fa;
         --main-gradient-background-image:linear-gradient(315deg, #7ee8fa 0%, #80ff72 74%);
 
-        --toggler-background-color: white;
+        --toggler-background-color: #e8ffe5;
 
         --post-title-color: black;
 
@@ -96,7 +96,7 @@ const GlobalStyle = createGlobalStyle`
 
         --post-title-color: white;
 
-        --toggler-background-color: gray;
+        --toggler-background-color: #0d1c3f;
 
         --tag-color: black;
 
