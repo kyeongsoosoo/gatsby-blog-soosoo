@@ -21,6 +21,14 @@ const GlobalStyle = createGlobalStyle`
         --typo2-weight: 400;
         --typo2-size: 18px;
 
+        --toc-l1-size: 24px;
+        --toc-l2-size: 20px;
+        --toc-l3-size: 16px;
+
+        --toc-active-color: green;
+        --toc-active-weight: 700;
+
+
         --header-width: 100%;
         --header-height: 7vh;
         --header-padding: 30px 30px;

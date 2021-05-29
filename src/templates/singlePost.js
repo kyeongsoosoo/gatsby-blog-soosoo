@@ -6,11 +6,21 @@ import Layout from '../components/layout';
 import styled from 'styled-components';
 import Title from '../Element/Title';
 import Seo from '../components/Seo';
+import { getHeadingIDs } from '../utils/ToCService';
+import ToC from '../components/ToC';
 
 const singlePost = ({ data }) => {
-  const imageData = data.mdx.frontmatter.imageURL.childImageSharp.fluid.src;
+  const imageData =
+    data.mdx.frontmatter.imageURL.childImageSharp.fluid.src || null;
 
   const seoImage = data.mdx.frontmatter.imageURL.publicURL;
+
+  const t = data.mdx.tableOfContents.items;
+
+  console.log(t);
+  // const t2 = getHeadingIDs(t);
+
+  // console.log(t2);
 
   return (
     <Layout>
@@ -19,15 +29,31 @@ const singlePost = ({ data }) => {
         description={data.mdx.frontmatter.excerpt}
         image={seoImage}
       />
-      <SinglePostTemplateWrapper>
-        <TopImageContainer src={imageData} />
-        <Title>{data.mdx.frontmatter.title}</Title>
-        <WhiteSpace />
-        <MDXRenderer>{data.mdx.body}</MDXRenderer>
-      </SinglePostTemplateWrapper>
+      <SinglePostWrapper>
+        <SinglePostTemplateWrapper>
+          {imageData && <TopImageContainer src={imageData} />}
+          <Title>{data.mdx.frontmatter.title}</Title>
+          <WhiteSpace />
+          <MDXRenderer>{data.mdx.body}</MDXRenderer>
+        </SinglePostTemplateWrapper>
+        <ToCWrapper>
+          <ToC items={t}></ToC>
+        </ToCWrapper>
+      </SinglePostWrapper>
+      <TocContent>Hi</TocContent>
     </Layout>
   );
 };
+
+const SinglePostWrapper = styled.div`
+  --wrapper-width: 100%;
+  --wrapper-min-height: 70vh;
+
+  position: relative;
+  display: flex;
+  width: var(--wrapper-width);
+  min-height: var(--wrapper-min-height);
+`;
 
 const SinglePostTemplateWrapper = styled.div`
   --template-width: 80vw;
@@ -43,6 +69,9 @@ const SinglePostTemplateWrapper = styled.div`
   margin: var(--template-margin);
   padding: var(--template-padding);
   border-radius: var(--template-border-radius);
+
+  position: relative;
+  flex-grow: 0;
 
   h1,
   h2,
@@ -171,6 +200,20 @@ const TopImageContainer = styled.img`
   height: 30vh;
 `;
 
+const ToCWrapper = styled.div`
+  width: 100px;
+  height: 100px;
+  flex-shrink: 0;
+  flex-basis: 200px;
+`;
+const TocContent = styled.div`
+  position: fixed;
+  top: 20vh;
+  right: 50px;
+  width: 100px;
+  height: 100px;
+`;
+
 export const pageQuery = graphql`
   query SinglePostQuery($id: String!) {
     mdx(id: { eq: $id }) {
@@ -189,6 +232,7 @@ export const pageQuery = graphql`
           }
         }
       }
+      tableOfContents
     }
   }
 `;
