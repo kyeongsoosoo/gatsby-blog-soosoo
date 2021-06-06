@@ -32,7 +32,7 @@ const TagWrapper = styled(FloatingBox)`
   background-color: ${({ isSelected }) =>
     isSelected
       ? `var(--tag-background-color-selected);`
-      : 'var(--tag-background-color);'}
+      : 'var(--tag-background-color);'};
 
   min-width: var(--tag-min-width);
   max-width: var(--tag-max-width);

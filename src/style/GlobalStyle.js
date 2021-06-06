@@ -25,8 +25,15 @@ const GlobalStyle = createGlobalStyle`
         --toc-l2-size: 20px;
         --toc-l3-size: 16px;
 
-        --toc-active-color: green;
-        --toc-active-weight: 700;
+        --toc-active-level1-color: green;
+        --toc-active-level1-weight: 700;
+        
+        --toc-active-level2-color: red;
+        --toc-active-level2-weight: 600;
+        
+        --toc-active-level3-color: blue;
+        --toc-active-level3-weight: 500;
+        
 
 
         --header-width: 100%;

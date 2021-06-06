@@ -17,7 +17,7 @@ const singlePost = ({ data }) => {
 
   const t = data.mdx.tableOfContents.items;
 
-  console.log(t);
+  // console.log(t);
   // const t2 = getHeadingIDs(t);
 
   // console.log(t2);
@@ -36,11 +36,11 @@ const singlePost = ({ data }) => {
           <WhiteSpace />
           <MDXRenderer>{data.mdx.body}</MDXRenderer>
         </SinglePostTemplateWrapper>
-        <ToCWrapper>
-          <ToC items={t}></ToC>
-        </ToCWrapper>
+        <ToCWrapper></ToCWrapper>
       </SinglePostWrapper>
-      <TocContent>Hi</TocContent>
+      <TocContent>
+        <ToC items={t}></ToC>
+      </TocContent>
     </Layout>
   );
 };
@@ -56,12 +56,12 @@ const SinglePostWrapper = styled.div`
 `;
 
 const SinglePostTemplateWrapper = styled.div`
-  --template-width: 80vw;
+  --template-width: 70vw;
   --template-min-height: 70vh;
 
   --template-margin: 20px auto;
   --template-border-radius: 20px;
-  --template-padding: 50px 30px;
+  --template-padding: 50px 10px;
 
   width: var(--template-width);
   min-height: var(--template-min-height);
@@ -201,7 +201,7 @@ const TopImageContainer = styled.img`
 `;
 
 const ToCWrapper = styled.div`
-  width: 100px;
+  width: 300px;
   height: 100px;
   flex-shrink: 0;
   flex-basis: 200px;
@@ -209,8 +209,8 @@ const ToCWrapper = styled.div`
 const TocContent = styled.div`
   position: fixed;
   top: 20vh;
-  right: 50px;
-  width: 100px;
+  right: 0;
+  width: 23vw;
   height: 100px;
 `;
 

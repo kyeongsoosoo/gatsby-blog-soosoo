@@ -2,18 +2,21 @@ import React, { useEffect } from 'react';
 import { useState } from 'react';
 
 export const useActiveHsh = (itemIds, rootMargin) => {
-  const [activeHash, setActiveHash] = useState();
+  const initialID = itemIds[0];
+
+  const [activeHash, setActiveHash] = useState(initialID);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       entries => {
         entries.forEach(entry => {
-          if (entry.isIntersecting) {
+          if (entry.isIntersecting && activeHash !== entry.target.id) {
+            console.log(entry.target);
             setActiveHash(entry.target.id);
           }
         });
       },
-      { rootMargin: rootMargin || `0% 0% -80% 0%` },
+      { rootMargin: rootMargin || `-49% 0%` },
     );
     itemIds.forEach(id => {
       observer.observe(document.querySelector(`#${id}`));
