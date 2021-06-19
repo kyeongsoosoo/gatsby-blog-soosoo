@@ -52,10 +52,10 @@ const IntroBubbleImage = styled(Image)`
   border-radius: var(--bb-image-radius);
 `;
 
-const IntroBubbleName = styled.h1`
+const IntroBubbleName = styled.div`
   ${typo1}
 `;
-const IntroBubbleDesc = styled.h2`
+const IntroBubbleDesc = styled.div`
   ${typo2}
 `;
 

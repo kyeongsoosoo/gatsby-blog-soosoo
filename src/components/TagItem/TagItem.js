@@ -4,24 +4,24 @@ import { FloatingBox } from '../../Element/FloatingBox';
 import P from '../../Element/P';
 import { flexCenter } from '../../style/styleUtil';
 
-export default function TagItem({ children, slug, isSelected = false }) {
+export default function TagItem({ children, slug, isSelected = false, hasLeftMargin= false }) {
   const handleTagLink = event => {
     event.preventDefault();
     window.location.href = `${window.location.origin}/${slug}`;
   };
   return (
-    <TagWrapper onClick={handleTagLink} isSelected={isSelected}>
+    <TagWrapper onClick={handleTagLink} isSelected={isSelected} hasLeftMargin={hasLeftMargin}>
       <P type="tag">{children}</P>
     </TagWrapper>
   );
 }
 
 const TagWrapper = styled(FloatingBox)`
-  --tag-padding: 3px 3px;
+  --tag-padding: 3px 5px;
   --tag-min-width: 80px;
-  --tag-max-width: 180px;
+  
   --tag-height: 40px;
-  --tag-radius: 5px;
+  --tag-radius: 10px;
   --tag-margin-left: 15px;
   --tag-margin-bottom: 10px;
 
@@ -41,7 +41,8 @@ const TagWrapper = styled(FloatingBox)`
   border-radius: var(--tag-radius);
 
   margin-bottom: var(--tag-margin-bottom);
-  & + & {
-    margin-left: var(--tag-margin-left);
-  }
+  ${({hasLeftMargin}) => 
+  hasLeftMargin && `margin-left: var(--tag-margin-left);`
+}
+
 `;

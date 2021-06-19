@@ -22,7 +22,7 @@ export default function PostItem({ title, excerpt = '', tagList, slug }) {
         </PostItemDesc>
         <PostItemTagBox>
           {tagList.map(tag => (
-            <TagItem key={tag} slug={NamingService.makeCategorySlug(tag)}>
+            <TagItem key={tag} slug={NamingService.makeCategorySlug(tag)} hasLeftMargin={true}>
               {NamingService.makeHashTag(tag)}
             </TagItem>
           ))}
@@ -55,7 +55,7 @@ const PostItemWrapper = styled(FloatingBox)`
   box-sizing: content-box;
 `;
 
-const PostItemTitle = styled.h1`
+const PostItemTitle = styled.div`
   --title-margin-bottom: 20px;
 
   ${titleCss}
@@ -63,7 +63,7 @@ const PostItemTitle = styled.h1`
   margin-bottom: var(--title-margin-bottom);
 `;
 
-const PostItemDesc = styled.h2`
+const PostItemDesc = styled.div`
   --desc-margin-bottom: 15px;
 
   margin-bottom: var(--desc-margin-bottom);
@@ -74,12 +74,11 @@ const PostItemDesc = styled.h2`
 
 const PostItemTagBox = styled.div`
   --tag-box-width: 100%;
-  --tag-box-height: 30px;
-  --tag-bx-padding: 5px 10px;
+  --tag-box-margin: 15px 0px;
 
   display: flex;
 
   width: var(--tag-box-width);
   height: var(--tag-box-height);
-  padding: var(--tag-box-padding);
+  margin: var(--tag-box-margin);
 `;

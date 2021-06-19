@@ -4,7 +4,7 @@ import styled from 'styled-components';
 export default function CategoryBlock({ children }) {
   return (
     <CategoryBlockWrapper>
-      <CategoryTitle>카테고리</CategoryTitle>
+      <CategoryTitle>Tags</CategoryTitle>
       <CategoryTagWrapper>{children}</CategoryTagWrapper>
     </CategoryBlockWrapper>
   );
@@ -16,11 +16,11 @@ const CategoryBlockWrapper = styled.div`
   height: var(--category-block-height);
   min-height: var(--category-block-min-height);
   border-radius: var(--category-border-radius);
-  background-color: var(--category-background-color);
+  
 `;
 
 const CategoryTitle = styled.h1`
-  --title-margin-bottom: 15px;
+  --title-margin-bottom: 30px;
 
   font-weight: var(--typo1-weight);
   font-size: var(--typo1-size);
@@ -30,7 +30,7 @@ const CategoryTitle = styled.h1`
 const CategoryTagWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: space-around;
+  align-items: flex-start;
 `;
 
 // display: flex;

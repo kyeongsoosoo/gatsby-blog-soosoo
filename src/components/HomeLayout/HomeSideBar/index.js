@@ -14,12 +14,12 @@ export default function HomeSideBar({ totalTagList }) {
     <HomeSidebarWrapper>
       <IntroBubble />
       <CategoryBlock>
-        {console.log(selectedTag)}
         {totalTagList.map(item => (
           <TagItem
             slug={NamingService.makeCategorySlug(item.tagName)}
             key={item.tagName}
             isSelected={selectedTag === item.tagName}
+            hasLeftMargin = {false}
           >
             {NamingService.makeHashTag(item.tagName, item.count)}
           </TagItem>

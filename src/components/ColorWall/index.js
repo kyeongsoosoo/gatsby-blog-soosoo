@@ -6,7 +6,7 @@ export default function ColorWall() {
 }
 
 const ColorWallWrapper = styled.div`
-  position: sticky;
+  position: fixed;
   position: -webkit-sticky;
   top: 0;
   z-index: 40;
