@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
+import { MediaBreakPoint } from '../constants/constants';
 import { style_reset } from './reset';
 
 //classList에 light 와 dark를 넣어주는 방식으로 다크모드 구현.
@@ -7,9 +8,17 @@ const GlobalStyle = createGlobalStyle`
     ${style_reset}
 
     :root {
+        --header-space-height: 80px;
+
+
+
         --title-color: #96fac3;
         --title-weight: 700;
         --title-size: 42px;
+
+        @media only screen and (max-width: ${`${MediaBreakPoint.sm}`}) {
+            --title-size: 30px;
+          }
 
         --tag-weight: 700;
         --tag-size: 14px;
@@ -38,11 +47,11 @@ const GlobalStyle = createGlobalStyle`
 
         --header-width: 100%;
         --header-height: 7vh;
-        --header-padding: 30px 30px;
+        --header-padding: 10px 15px;
         --header-margin-bottom: 20px;
         --header-border-bottom: 1px solid gray;
 
-        --theme-toggler-width: 150px;
+        --theme-toggler-width: 120px;
         --theme-toggler-height: 60px;
 
         --bb-width: 200px;
@@ -70,7 +79,7 @@ const GlobalStyle = createGlobalStyle`
         --main-gradient-background-color:#7ee8fa;
         --main-gradient-background-image:linear-gradient(315deg, #7ee8fa 0%, #80ff72 74%);
 
-        --toggler-background-color: #e8ffe5;
+        --toggler-background-color: linear-gradient(aqua, skyblue);
 
         --post-title-color: black;
 
@@ -111,7 +120,7 @@ const GlobalStyle = createGlobalStyle`
 
         --post-title-color: white;
 
-        --toggler-background-color: #0d1c3f;
+        --toggler-background-color: linear-gradient(midnightblue, rebeccapurple);
 
         --tag-color: black;
 

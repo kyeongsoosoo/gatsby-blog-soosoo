@@ -25,9 +25,9 @@ const HeaderWrapper = styled.header`
   align-items: center;
   justify-content: space-between;
   width: var(--header-width);
-  height: var(--header-height);
+
   padding: var(--header-padding);
-  margin-bottom: var(--header-margin-bottom);
+  
 
   position: sticky;
   position: -webkit-sticky;
@@ -40,8 +40,7 @@ const HeaderLeftBox = styled.div`
   --left-box-height: 200px;
 
   ${flexCenter}
-  width: var(--left-box-width);
-  height: var(--left-box-height);
+
 `;
 
 const HeaderRightBox = styled.div`
@@ -50,7 +49,6 @@ const HeaderRightBox = styled.div`
   --right-box-margin-top: 10px;
 
   ${flexCenter}
-  width: var(--right-box-width);
-  height: var(--right-box-height);
-  margin-top: var(--right-box-margin-top);
+
+  
 `;
