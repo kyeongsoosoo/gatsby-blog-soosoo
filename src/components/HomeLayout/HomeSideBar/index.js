@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { MediaBreakPoint } from '../../../constants/constants';
 import Location from '../../../utils/LocationService';
 import NamingService from '../../../utils/NamingService';
 
@@ -35,4 +36,8 @@ const HomeSidebarWrapper = styled.div`
 
   width: var(--home-sidebar-width);
   height: var(--home-sidebar-height);
+
+  @media only screen and (max-width: ${`${MediaBreakPoint.sm}`}) {
+    display: none;
+  }
 `;

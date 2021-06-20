@@ -6,8 +6,8 @@ import Layout from '../components/layout';
 import styled from 'styled-components';
 import Title from '../Element/Title';
 import Seo from '../components/Seo';
-import { getHeadingIDs } from '../utils/ToCService';
 import ToC from '../components/ToC';
+import { MediaBreakPoint } from '../constants/constants';
 
 const singlePost = ({ data }) => {
   const imageData =
@@ -16,11 +16,6 @@ const singlePost = ({ data }) => {
   const seoImage = data.mdx.frontmatter.imageURL.publicURL;
 
   const t = data.mdx.tableOfContents.items;
-
-  // console.log(t);
-  // const t2 = getHeadingIDs(t);
-
-  // console.log(t2);
 
   return (
     <Layout>
@@ -205,6 +200,10 @@ const ToCWrapper = styled.div`
   height: 100px;
   flex-shrink: 0;
   flex-basis: 200px;
+
+  @media only screen and (max-width: ${`${MediaBreakPoint.bg}`}) {
+    display: none;
+  }
 `;
 const TocContent = styled.div`
   position: fixed;
@@ -212,6 +211,10 @@ const TocContent = styled.div`
   right: 0;
   width: 23vw;
   height: 100px;
+
+  @media only screen and (max-width: ${`${MediaBreakPoint.bg}`}) {
+    display: none;
+  }
 `;
 
 export const pageQuery = graphql`
