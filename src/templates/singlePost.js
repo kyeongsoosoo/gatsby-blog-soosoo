@@ -32,10 +32,10 @@ const singlePost = ({ data }) => {
           <MDXRenderer>{data.mdx.body}</MDXRenderer>
         </SinglePostTemplateWrapper>
         <ToCWrapper></ToCWrapper>
-      </SinglePostWrapper>
       <TocContent>
         <ToC items={t}></ToC>
       </TocContent>
+      </SinglePostWrapper>
     </Layout>
   );
 };
@@ -51,14 +51,19 @@ const SinglePostWrapper = styled.div`
 `;
 
 const SinglePostTemplateWrapper = styled.div`
-  --template-width: 70vw;
+  --template-width: 65vw;
+  --template-mobile-width: 90vw;
   --template-min-height: 70vh;
 
-  --template-margin: 20px auto;
+  --template-margin: 20px 50px;
   --template-border-radius: 20px;
   --template-padding: 50px 10px;
 
-  width: var(--template-width);
+  @media only screen and (max-width: ${`${MediaBreakPoint.bg}`}) {
+    width: var(--template-mobile-width);
+  }
+
+
   min-height: var(--template-min-height);
   background-color: var(--template-background-color);
   margin: var(--template-margin);
@@ -66,7 +71,7 @@ const SinglePostTemplateWrapper = styled.div`
   border-radius: var(--template-border-radius);
 
   position: relative;
-  flex-grow: 0;
+  flex-grow: 1;
 
   h1,
   h2,
@@ -199,7 +204,6 @@ const ToCWrapper = styled.div`
   width: 300px;
   height: 100px;
   flex-shrink: 0;
-  flex-basis: 200px;
 
   @media only screen and (max-width: ${`${MediaBreakPoint.bg}`}) {
     display: none;
@@ -207,9 +211,9 @@ const ToCWrapper = styled.div`
 `;
 const TocContent = styled.div`
   position: fixed;
-  top: 20vh;
-  right: 0;
-  width: 23vw;
+  top: 100px;
+  right: 2vw;
+  width: 300px;
   height: 100px;
 
   @media only screen and (max-width: ${`${MediaBreakPoint.bg}`}) {

@@ -30,17 +30,16 @@ const GlobalStyle = createGlobalStyle`
         --typo2-weight: 400;
         --typo2-size: 18px;
 
-        --toc-l1-size: 24px;
-        --toc-l2-size: 20px;
-        --toc-l3-size: 16px;
-
-        --toc-active-level1-color: green;
+        --toc-active-level1-size: 20px;
+        --toc-active-level1-color: #66a80f;
         --toc-active-level1-weight: 700;
         
-        --toc-active-level2-color: red;
+        --toc-active-level2-size: 16px;
+        --toc-active-level2-color: #a9e34b;
         --toc-active-level2-weight: 600;
         
-        --toc-active-level3-color: blue;
+        --toc-active-level3-size: 12px;
+        --toc-active-level3-color: #d8f5a2;
         --toc-active-level3-weight: 500;
         
 

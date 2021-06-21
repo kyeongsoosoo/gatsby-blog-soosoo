@@ -58,14 +58,16 @@ function createItems(items, activeHash, level = 1) {
       console.log(checkActiveLevel)
 
       return (
-        <li key={item.url}>
+        <li key={item.url} style={{marginBottom: '7px'}}>
           {item.url && (
             <ToCContent
               to={item.url}
+              toclevel={level}
               style={
                 (checkActiveLevel
                   ? {
                     fontWeight: `var(--toc-active-level${checkActiveLevel}-weight)`,
+                    
                     color: `var(--toc-active-level${checkActiveLevel}-color)`,
                   }
                   : null
@@ -90,13 +92,15 @@ const TocContentWrapper = styled.ul`
   width: 100%;
   padding : 10px 10px;
   & & {
-    padding-left: 10px;
+    padding-left: 15px;
   }
 `;
 
 const ToCContent = styled(Link)`
   
+  font-size: ${({toclevel}) => css`
+    var(--toc-active-level${toclevel}-size)
+  `};
   padding: 10px 10px;
-  font-size: var(--toc-l1-size);
   color: gray;
 `;
