@@ -28,7 +28,9 @@ export default function Header({ children }) {
           <HeaderRightMenu src={menuIcon} onClick={handleModalClick}/>
         </HeaderRightBox>
       </HeaderWrapper>
-      <SideModal visible={isOpen}/>
+      <SideModal visible={isOpen}>
+        <ThemeToggler/>
+      </SideModal>
     </>
   );
 }

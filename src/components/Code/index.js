@@ -2,10 +2,11 @@ import React from 'react';
 import Highlight, { defaultProps } from 'prism-react-renderer';
 import { default as darkTheme } from 'prism-react-renderer/themes/vsDark';
 import { default as lightTheme } from 'prism-react-renderer/themes/nightOwlLight';
-import ThemeService from '../../utils/ThemeService';
+import { useThemeMode } from '../../context/themeContext';
 
 export const Code = ({ codeString, language, ...props }) => {
-  const myTheme = ThemeService.checkTheme();
+
+  const myTheme = useThemeMode();
   const codeTheme = myTheme === 'light' ? darkTheme : lightTheme;
 
   return (

@@ -1,11 +1,15 @@
 import React, { useLayoutEffect, useState } from 'react';
+import { useThemeUpdate, useThemeMode } from '../context/themeContext';
 import Location from '../utils/LocationService';
 import Theme from '../utils/ThemeService';
 
 export default function useTheme() {
-  const [theme, setTheme] = useState();
+  // const [theme, setTheme] = useState();
 
-  const themeHandler = savedTheme => {
+  const theme = useThemeMode();
+  const setTheme = useThemeUpdate();
+
+  const themeHandler = (savedTheme) => {
     if (savedTheme === 'dark') {
       Theme.remove('light');
       Theme.add('dark');
@@ -18,7 +22,7 @@ export default function useTheme() {
   const handleThemeToggle = () => {
     const toggledTheme = theme === 'light' ? 'dark' : 'light';
     setTheme(toggledTheme);
-    new Location().makeReload(); //코드 블록 다크모드 적용을 위한 새로고침
+    // new Location().makeReload(); //코드 블록 다크모드 적용을 위한 새로고침
     themeHandler(toggledTheme);
   };
 
@@ -30,7 +34,7 @@ export default function useTheme() {
     setTheme(savedTheme);
 
     themeHandler(savedTheme);
-  }, []);
+  }, [setTheme]);
 
   return { theme: theme, handleThemeToggle };
 }

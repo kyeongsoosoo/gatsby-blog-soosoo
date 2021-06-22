@@ -7,7 +7,7 @@ import './language-tabs.css';
 import Header from './Header';
 import { Code } from './Code';
 import { HeaderSpace } from '../Element/WhiteSpace';
-import Menu from './Menu';
+import ThemeProvider from '../context/themeContext';
 
 export default function Layout({ children }) {
   const components = {
@@ -21,13 +21,15 @@ export default function Layout({ children }) {
     wrapper: ({ children }) => <>{children} </>,
   };
   return (
-    <MDXProvider components={components}>
-      <GlobalStyle />
-      <ColorWall >
-        <Header/>
-      </ColorWall>
-      <HeaderSpace/>
-      {children}
-    </MDXProvider>
+    <ThemeProvider>
+          <MDXProvider components={components}>
+            <GlobalStyle />
+            <ColorWall >
+              <Header/>
+            </ColorWall>
+            <HeaderSpace/>
+            {children}
+      </MDXProvider>
+    </ThemeProvider>
   );
 }
