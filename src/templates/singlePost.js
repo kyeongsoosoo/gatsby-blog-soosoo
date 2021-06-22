@@ -61,6 +61,7 @@ const SinglePostTemplateWrapper = styled.div`
 
   @media only screen and (max-width: ${`${MediaBreakPoint.bg}`}) {
     width: var(--template-mobile-width);
+    margin: 20px 15px;
   }
 
 

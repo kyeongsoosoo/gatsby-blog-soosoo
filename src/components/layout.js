@@ -7,6 +7,7 @@ import './language-tabs.css';
 import Header from './Header';
 import { Code } from './Code';
 import { HeaderSpace } from '../Element/WhiteSpace';
+import Menu from './Menu';
 
 export default function Layout({ children }) {
   const components = {

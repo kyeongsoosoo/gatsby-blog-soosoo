@@ -1,22 +1,35 @@
 import { Link } from 'gatsby';
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import Title from '../../Element/Title';
 import { flexCenter } from '../../style/styleUtil';
 import ThemeToggler from '../ThemeToggler';
-
+import menuIcon from '../../assets/menu.svg';
+import SideModal from '../SideModal';
 export default function Header({ children }) {
+
+  const [isOpen, setOpen] = useState(false);
+
+  const handleModalClick = () => {
+    setOpen( isOpen => !isOpen);
+  }
+
   return (
-    <HeaderWrapper>
-      <HeaderLeftBox>
-        <Link to="/">
-          <Title isColor={true}>Soo Blog</Title>
-        </Link>
-      </HeaderLeftBox>
-      <HeaderRightBox>
-        <ThemeToggler />
-      </HeaderRightBox>
-    </HeaderWrapper>
+    <>
+      <HeaderWrapper>
+        <HeaderLeftBox>
+        {/* <div>Icons made by <a href="https://www.flaticon.com/authors/pixel-perfect" title="Pixel perfect">Pixel perfect</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div> */}
+          <Link to="/">
+            <Title isColor={true}>Soo Blog</Title>
+          </Link>
+        </HeaderLeftBox>
+        <HeaderRightBox>
+          <ThemeToggler />
+          <HeaderRightMenu src={menuIcon} onClick={handleModalClick}/>
+        </HeaderRightBox>
+      </HeaderWrapper>
+      <SideModal visible={isOpen}/>
+    </>
   );
 }
 
@@ -49,6 +62,9 @@ const HeaderRightBox = styled.div`
   --right-box-margin-top: 10px;
 
   ${flexCenter}
+`;
 
-  
+const HeaderRightMenu = styled.img`
+  width: 50px;
+  height: 50px;
 `;
