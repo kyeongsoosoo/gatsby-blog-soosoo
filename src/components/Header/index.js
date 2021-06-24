@@ -6,13 +6,12 @@ import { flexCenter } from '../../style/styleUtil';
 import ThemeToggler from '../ThemeToggler';
 import menuIcon from '../../assets/menu.svg';
 import SideModal from '../SideModal';
-export default function Header({ children }) {
+import { useModalUpdate } from '../../context/ModalContext';
 
-  const [isOpen, setOpen] = useState(false);
+export default function Header() {
 
-  const handleModalClick = () => {
-    setOpen( isOpen => !isOpen);
-  }
+  
+  const setModalOpen = useModalUpdate();
 
   return (
     <>
@@ -25,10 +24,10 @@ export default function Header({ children }) {
         </HeaderLeftBox>
         <HeaderRightBox>
           <ThemeToggler />
-          <HeaderRightMenu src={menuIcon} onClick={handleModalClick}/>
+          <HeaderRightMenu src={menuIcon} onClick={setModalOpen}/>
         </HeaderRightBox>
       </HeaderWrapper>
-      <SideModal visible={isOpen}>
+      <SideModal>
         <ThemeToggler/>
       </SideModal>
     </>

@@ -8,6 +8,7 @@ import Header from './Header';
 import { Code } from './Code';
 import { HeaderSpace } from '../Element/WhiteSpace';
 import ThemeProvider from '../context/themeContext';
+import ModalProvider from '../context/ModalContext';
 
 export default function Layout({ children }) {
   const components = {
@@ -22,6 +23,7 @@ export default function Layout({ children }) {
   };
   return (
     <ThemeProvider>
+      <ModalProvider>
           <MDXProvider components={components}>
             <GlobalStyle />
             <ColorWall >
@@ -29,7 +31,8 @@ export default function Layout({ children }) {
             </ColorWall>
             <HeaderSpace/>
             {children}
-      </MDXProvider>
+        </MDXProvider>
+      </ModalProvider>
     </ThemeProvider>
   );
 }

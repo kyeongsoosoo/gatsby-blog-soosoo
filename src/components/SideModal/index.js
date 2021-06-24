@@ -1,15 +1,31 @@
-import React from 'react'
-import styled, { css } from 'styled-components'
+import React, { useEffect, useState } from 'react'
+import styled, { css, keyframes } from 'styled-components'
+import { useModalState, useModalUpdate } from '../../context/ModalContext';
+import Menu from '../Menu';
 
-function SideModal({visible = false,children}) {
+function SideModal({children}) {
+
+    const modalState = useModalState();
+    const setModalOpen = useModalUpdate();
+    
+    const [modalAnimate,setAnimate] = useState(false);
+
+    useEffect(() => {
+        if(modalState === true)
+            setAnimate(true);
+    },[modalState]);
+
+    console.log(modalState)
+
     return (
         <>
-            <ModalOverlay visible={visible}/>
-            <ModalWrapper visible={visible}>
-                <ModalInner visible={visible}>
-                    {children}
-                </ModalInner>
+            <ModalOverlay visible={modalState} />
+            <ModalWrapper visible={modalState} onClick={setModalOpen}>
             </ModalWrapper>
+            <ModalInner visible={modalState} >
+                <Menu/>
+                {children}
+            </ModalInner>
         </>
     )
 }
@@ -40,24 +56,22 @@ const ModalOverlay = styled.div`
 const ModalInner = styled.div`
     position: fixed;
     background-color: #fff;
-    width: 300px;
-    height: 100vh;
-    transfrom: translateX(-300px);
+    width: 250px;
+    height: 100%;
+    top: 0;
     right: 0;
     padding: 40px 20px;
-
-    ${({visible}) => visible && css`
-        animation: slidein 0.5s ease-out;
-    `}
+    transform: translateX(300px);
+    z-index: 1000;
+    transition: all 1s;
     
-    @keyframes slidein {
-        from {
-            transform: translateX(300px);
-        }
-        to {
-            transform: translateX(0);
-        }
-    }
+
+    ${({visible}) => visible ? css`
+        transform: translateX(0px);
+    ` : css`
+        transform: translateX(300px); `
+}
+
 `;
 
 
