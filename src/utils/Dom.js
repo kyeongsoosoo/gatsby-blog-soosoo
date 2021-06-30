@@ -4,7 +4,10 @@ export const getBody = () => getElement('body');
 
 export const getDocument = () => getElement('document');
 
-export const getWindow = () => window;
+export const getWindow = () => {
+    if(typeof window !== "undefined") return window;
+    else return;
+}
 
 export const add = (insert) => {
     getBody().classList.add(insert);
@@ -31,5 +34,6 @@ export const getTag = () => {
   };
 
 export const makeReload = () => {
+
     getWindow().location.reload();
   };  
