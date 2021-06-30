@@ -6,7 +6,6 @@ export const getDocument = () => getElement('document');
 
 export const getWindow = () => {
     if(typeof window !== "undefined") return window;
-    else return;
 }
 
 export const add = (insert) => {
