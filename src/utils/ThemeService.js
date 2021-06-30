@@ -5,6 +5,10 @@
 // }
 class Theme {
   constructor() {
+    
+  }
+
+  init() {
     this.bodyElement = document.querySelector('body');
   }
 
