@@ -9,6 +9,7 @@ import { Code } from './Code';
 import { HeaderSpace } from '../Element/WhiteSpace';
 import ThemeProvider from '../context/themeContext';
 import ModalProvider from '../context/ModalContext';
+import Footer from './Footer';
 
 export default function Layout({ children }) {
   const components = {
@@ -31,6 +32,7 @@ export default function Layout({ children }) {
             </ColorWall>
             <HeaderSpace/>
             {children}
+            <Footer/>
         </MDXProvider>
       </ModalProvider>
     </ThemeProvider>

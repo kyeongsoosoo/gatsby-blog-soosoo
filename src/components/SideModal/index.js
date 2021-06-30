@@ -7,15 +7,7 @@ function SideModal({children}) {
 
     const modalState = useModalState();
     const setModalOpen = useModalUpdate();
-    
-    const [modalAnimate,setAnimate] = useState(false);
 
-    useEffect(() => {
-        if(modalState === true)
-            setAnimate(true);
-    },[modalState]);
-
-    console.log(modalState)
 
     return (
         <>

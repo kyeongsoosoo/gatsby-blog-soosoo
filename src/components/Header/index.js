@@ -7,6 +7,7 @@ import ThemeToggler from '../ThemeToggler';
 import menuIcon from '../../assets/menu.svg';
 import SideModal from '../SideModal';
 import { useModalUpdate } from '../../context/ModalContext';
+import { MediaBreakPoint } from '../../constants/constants';
 
 export default function Header() {
 
@@ -17,13 +18,15 @@ export default function Header() {
     <>
       <HeaderWrapper>
         <HeaderLeftBox>
-        {/* <div>Icons made by <a href="https://www.flaticon.com/authors/pixel-perfect" title="Pixel perfect">Pixel perfect</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div> */}
+        
           <Link to="/">
             <Title isColor={true}>Soo Blog</Title>
           </Link>
         </HeaderLeftBox>
         <HeaderRightBox>
-          <ThemeToggler />
+          <HeaderRightToggler>
+            <ThemeToggler />
+          </HeaderRightToggler>
           <HeaderRightMenu src={menuIcon} onClick={setModalOpen}/>
         </HeaderRightBox>
       </HeaderWrapper>
@@ -68,4 +71,14 @@ const HeaderRightBox = styled.div`
 const HeaderRightMenu = styled.img`
   width: 50px;
   height: 50px;
+
+  @media only screen and (min-width: ${`${MediaBreakPoint.sm}`}) {
+    display: none;
+  }
+`;
+
+const HeaderRightToggler = styled.div`
+  @media only screen and (max-width: ${`${MediaBreakPoint.sm}`}) {
+  display: none;
+}
 `;

@@ -11,9 +11,14 @@ import { MediaBreakPoint } from '../constants/constants';
 
 const singlePost = ({ data }) => {
   const imageData =
-    data.mdx.frontmatter.imageURL.childImageSharp.fluid.src || null;
+  data.mdx.frontmatter.imageURL 
+    ? data.mdx.frontmatter.imageURL.childImageSharp.fluid.src 
+    :"https://source.unsplash.com/random/?coding";
 
-  const seoImage = data.mdx.frontmatter.imageURL.publicURL;
+  const seoImage = 
+  data.mdx.frontmatter.imageURL 
+  ?  data.mdx.frontmatter.imageURL.publicURL
+  : null;
 
   const t = data.mdx.tableOfContents.items;
 
@@ -198,7 +203,7 @@ const SinglePostTemplateWrapper = styled.div`
 const TopImageContainer = styled.img`
   position: relative;
   width: 100%;
-  height: 30vh;
+  height: 50vw;
 `;
 
 const ToCWrapper = styled.div`

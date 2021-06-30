@@ -39,7 +39,7 @@ const PostItemLinkWrapper = styled(Link)`
 const PostItemWrapper = styled(FloatingBox)`
   --item-width: 80%;
   --item-max-width: 700px;
-  --item-height: 200px;
+  --item-height: 150px;
   --item-radius: 30px;
   --item-padding: 30px 30px;
   --item-margin-bottom: 40px;

@@ -70,7 +70,8 @@ const GlobalStyle = createGlobalStyle`
 
     body{
         font-family : 'Noto Sans KR','roboto mono', 'muli', sans-serif;
-
+        font-weight: bold;
+        font-size: 12px;
         
     }
 
@@ -107,7 +108,7 @@ const GlobalStyle = createGlobalStyle`
 
         --home-main-border-bottom: 2px solid black;
 
-       
+       --footer-border-top: 1px solid rgba(0,0,0,0.5);
 
         --p-color: black;
     }
@@ -143,6 +144,8 @@ const GlobalStyle = createGlobalStyle`
         --template-background-color: #2b333f;
 
         --home-main-border-bottom: 2px solid white;
+
+        --footer-border-top: 1px solid #ffffff;
 
         --p-color: white;
 
