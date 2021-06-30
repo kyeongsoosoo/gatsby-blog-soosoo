@@ -1,13 +1,16 @@
 import React from 'react';
 import styled from 'styled-components';
+import Title from '../../../Element/Title';
 import { titleCss } from '../../../style/typo';
-import PostItem from './PostItem';
+import NamingService from '../../../utils/NamingService';
 
 export default function HomeMain({ children, category }) {
   return (
     <HomeMainWrapper>
       <HomeMainTitle>
-        {category ? `${category[0].toUpperCase() + category.slice(1)}` : 'Home'}
+        <Title isColor={true}>
+          {category ? NamingService.makeTitle(category) : 'Home'}
+        </Title>
       </HomeMainTitle>
       {children}
     </HomeMainWrapper>
@@ -28,7 +31,7 @@ const HomeMainWrapper = styled.div`
 const HomeMainTitle = styled.div`
   --home-main-title-margin-top: 50px;
   --home-main-title-size: 48px;
-  --home-main-border-bottom: 2px solid black;
+
   --home-main-letter-spacing: 1.5px;
   --home-main-margin-bottom: 40px;
 

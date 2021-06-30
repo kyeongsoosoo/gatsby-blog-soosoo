@@ -2,12 +2,17 @@ import React from 'react';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
 import { flexCenter } from '../../style/styleUtil';
+import P from '../../Element/P';
 
 export default function Pagination({ isFirst, isLast, prevPage, nextPage }) {
   return (
     <PaginationWrapper isFirst={isFirst} isLast={isLast}>
-      <PaginationElement to={prevPage}>Prev Page</PaginationElement>
-      <PaginationElement to={nextPage}>Next Page</PaginationElement>
+      <PaginationElement to={prevPage}>
+        <P type="tag">Prev Page</P>
+      </PaginationElement>
+      <PaginationElement to={nextPage}>
+        <P type="tag">Next Page</P>
+      </PaginationElement>
     </PaginationWrapper>
   );
 }

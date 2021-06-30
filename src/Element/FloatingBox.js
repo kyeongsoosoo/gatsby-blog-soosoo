@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const FloatingBox = styled.div`
+  
   cursor: pointer;
   &:hover {
     -webkit-box-shadow: var(--floating-webkit-box-shadow);

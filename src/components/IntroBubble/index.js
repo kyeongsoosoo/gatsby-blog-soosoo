@@ -1,13 +1,29 @@
 import React from 'react';
 import styled from 'styled-components';
+import P from '../../Element/P';
+import Title from '../../Element/Title';
 import { typo1, typo2 } from '../../style/typo';
+import Image from 'gatsby-image';
+import GithubIcon from './GithubIcon';
+import useSiteInfo from '../../hooks/useSiteInfo';
+import { Link } from 'gatsby';
 
-export default function IntroBubble() {
+function IntroBubble() {
+  const { profileImageURL, nickname, githubURL } = useSiteInfo();
   return (
     <IntroBubbleWrapper>
-      <IntroBubbleImage />
-      <IntroBubbleName>KyeongSoo</IntroBubbleName>
-      <IntroBubbleDesc>테스트 중!</IntroBubbleDesc>
+      <IntroBubbleImage fixed={profileImageURL} />
+      <Link to="/about">
+        <IntroBubbleName>
+          <Title>{nickname}</Title>
+        </IntroBubbleName>
+      </Link>
+      <IntroBubbleDesc>
+        <P>테스트 중!</P>
+      </IntroBubbleDesc>
+      <a href={githubURL}>
+        <GithubIcon />
+      </a>
     </IntroBubbleWrapper>
   );
 }
@@ -26,7 +42,7 @@ const IntroBubbleWrapper = styled.div`
   border-radius: var(--bb-border-radius);
 `;
 
-const IntroBubbleImage = styled.img`
+const IntroBubbleImage = styled(Image)`
   --bb-image-width: 120px;
   --bb-image-height: 120px;
   --bb-image-radius: 60px;
@@ -34,12 +50,13 @@ const IntroBubbleImage = styled.img`
   width: var(--bb-image-width);
   height: var(--bb-image-height);
   border-radius: var(--bb-image-radius);
-  background-color: pink;
 `;
 
-const IntroBubbleName = styled.h1`
+const IntroBubbleName = styled.div`
   ${typo1}
 `;
-const IntroBubbleDesc = styled.h2`
+const IntroBubbleDesc = styled.div`
   ${typo2}
 `;
+
+export default React.memo(IntroBubble);

@@ -5,6 +5,7 @@ title: new1
 tagList: ['hi1']
 slug: try10
 excerpt: this?
+imageURL: ../../images/blog-dark.png
 ---
 
-#h1 hi
+# hi
