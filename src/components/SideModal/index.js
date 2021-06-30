@@ -15,7 +15,7 @@ function SideModal({children}) {
             <ModalWrapper visible={modalState} onClick={setModalOpen}>
             </ModalWrapper>
             <ModalInner visible={modalState} >
-                <Menu/>
+                {modalState && <Menu/>}
                 {children}
             </ModalInner>
         </>
@@ -53,7 +53,6 @@ const ModalInner = styled.div`
     top: 0;
     right: 0;
     padding: 40px 20px;
-    transform: translateX(300px);
     z-index: 1000;
     transition: all 1s;
     
@@ -61,7 +60,8 @@ const ModalInner = styled.div`
     ${({visible}) => visible ? css`
         transform: translateX(0px);
     ` : css`
-        transform: translateX(300px); `
+        transform: translateX(300px);
+    `
 }
 
 `;

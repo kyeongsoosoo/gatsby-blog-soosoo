@@ -10,7 +10,7 @@ export default function TagItem({ children, slug, isSelected = false, hasLeftMar
     window.location.href = `${window.location.origin}/${slug}`;
   };
   return (
-    <TagWrapper onClick={handleTagLink} isSelected={isSelected} hasLeftMargin={hasLeftMargin}>
+    <TagWrapper onClick={handleTagLink} isSelected={isSelected} hasLeftMargin={hasLeftMargin} tabIndex={0}>
       <P type="tag">{children}</P>
     </TagWrapper>
   );

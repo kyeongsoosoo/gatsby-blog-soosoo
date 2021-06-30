@@ -7,12 +7,18 @@ import { flexCenter } from '../../style/styleUtil';
 
 export default function ThemeToggler() {
   const { theme, handleThemeToggle } = useTheme();
+
+  const handleEnterKey = (event) => {
+    if(event.key === 'Enter')
+      handleThemeToggle();
+  }
+
   return (
-    <ThemeTogglerWrapper onClick={handleThemeToggle}>
+    <ThemeTogglerWrapper onClick={handleThemeToggle} onKeyPress={handleEnterKey} tabIndex={0}>
       {/* <P type="theme-toggle">{`${
         theme === 'light' ? 'Dark' : 'Light'
       }로 보기`}</P> */}
-      <ThemeTogglerNotch theme={theme}/>
+      <ThemeTogglerNotch theme={theme} />
       <ThemeToggleShape1 theme={theme}/>
       <ThemeToggleShape2 theme={theme}/>
       <ThemeToggleShape3 theme={theme}/>
