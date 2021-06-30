@@ -1,22 +1,21 @@
-import { useLayoutEffect } from 'react';
+import { useEffect, useLayoutEffect } from 'react';
 import { useThemeUpdate, useThemeMode } from '../context/ThemeContext';
+import { add, remove } from '../utils/Dom';
 
-import Theme from '../utils/ThemeService';
 
 export default function useTheme() {
 
   const theme = useThemeMode();
   const setTheme = useThemeUpdate();
 
-  Theme.init();
 
   const themeHandler = (savedTheme) => {
     if (savedTheme === 'dark') {
-      Theme.remove('light');
-      Theme.add('dark');
+      remove('light');
+      add('dark');
     } else {
-      Theme.remove('dark');
-      Theme.add('light');
+      remove('dark');
+      add('light');
     }
   };
 
