@@ -4,6 +4,11 @@ export const getBody = () => getElement('body');
 
 export const getDocument = () => getElement('document');
 
+export const getWindow = () => {
+    if(typeof window !== "undefined") return window;
+    else return;
+}
+
 export const add = (insert) => {
     getBody().classList.add(insert);
     localStorage.setItem('theme', insert);
@@ -20,7 +25,7 @@ export const  checkTheme = () => {
 
 
 export const  getParamList = () => {
-    return window.location.pathname.split('/');
+    return getWindow().location.pathname.split('/');
   };
 
 export const getTag = () => {
@@ -29,5 +34,6 @@ export const getTag = () => {
   };
 
 export const makeReload = () => {
-    window.location.reload();
+
+    getWindow().location.reload();
   };  
