@@ -1,5 +1,5 @@
 import { Link } from 'gatsby';
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import Title from '../../Element/Title';
 import { flexCenter } from '../../style/styleUtil';
@@ -8,15 +8,47 @@ import menuIcon from '../../assets/menu.svg';
 import SideModal from '../SideModal';
 import { useModalUpdate } from '../../context/ModalContext';
 import { MediaBreakPoint } from '../../constants/constants';
+import { toFit } from '../../utils/RAF';
 
 export default function Header() {
 
   
   const setModalOpen = useModalUpdate();
 
+  const throttle = function (callback, waitTime) {
+    let timerId = null;
+    return (e) => {
+        if (timerId) return;
+        timerId = setTimeout(() => {
+            callback.call(this, e);
+            timerId = null;
+        }, waitTime);
+    };
+};
+
+  const [hide, setHide] = useState(false);
+    const [pageY, setPageY] = useState(0);
+    const documentRef = useRef(document);
+
+    const handleScroll = () => {
+        const { pageYOffset } = window;
+        console.log(pageYOffset)
+        const deltaY = pageYOffset - pageY;
+        const hide = pageYOffset > 30 && deltaY >= 0;
+        setHide(hide);
+        setPageY(pageYOffset);
+    };
+
+    const throttleScroll = toFit(handleScroll);
+
+    useEffect(() => {
+        documentRef.current.addEventListener('scroll', throttleScroll);
+        return () => documentRef.current.removeEventListener('scroll', throttleScroll);
+    }, [pageY]);
+
   return (
     <>
-      <HeaderWrapper>
+   {!hide && <HeaderWrapper>
         <HeaderLeftBox>
         
           <Link to="/">
@@ -29,7 +61,7 @@ export default function Header() {
           </HeaderRightToggler>
           <HeaderRightMenu src={menuIcon} onClick={setModalOpen}/>
         </HeaderRightBox>
-      </HeaderWrapper>
+      </HeaderWrapper>}
       <SideModal>
         <ThemeToggler/>
       </SideModal>
