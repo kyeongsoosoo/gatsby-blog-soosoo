@@ -1,5 +1,5 @@
 import { useLayoutEffect } from 'react';
-import { useThemeUpdate, useThemeMode } from '../context/themeContext';
+import { useThemeUpdate, useThemeMode } from '../context/ThemeContext';
 
 import Theme from '../utils/ThemeService';
 
