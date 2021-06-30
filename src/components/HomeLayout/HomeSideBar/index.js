@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import { MediaBreakPoint } from '../../../constants/constants';
-import Location from '../../../utils/LocationService';
+import { getTag } from '../../../utils/Dom';
+
 import NamingService from '../../../utils/NamingService';
 
 import CategoryBlock from '../../CategoryBlock';
@@ -9,7 +10,7 @@ import IntroBubble from '../../IntroBubble';
 import TagItem from '../../TagItem/TagItem';
 
 export default function HomeSideBar({ totalTagList }) {
-  const selectedTag = new Location().getTag();
+  const selectedTag = getTag();
 
   return (
     <HomeSidebarWrapper>
