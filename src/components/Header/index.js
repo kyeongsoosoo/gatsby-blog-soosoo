@@ -9,6 +9,7 @@ import SideModal from '../SideModal';
 import { useModalUpdate } from '../../context/ModalContext';
 import { MediaBreakPoint } from '../../constants/constants';
 import { toFit } from '../../utils/RAF';
+import { getDocument } from '../../utils/Dom';
 
 export default function Header() {
 
@@ -28,7 +29,7 @@ export default function Header() {
 
   const [hide, setHide] = useState(false);
     const [pageY, setPageY] = useState(0);
-    const documentRef = useRef(document);
+    const documentRef = useRef();
 
     const handleScroll = () => {
         const { pageYOffset } = window;
@@ -42,6 +43,8 @@ export default function Header() {
     const throttleScroll = toFit(handleScroll);
 
     useEffect(() => {
+        const doc = getDocument();
+        documentRef.current = doc;
         documentRef.current.addEventListener('scroll', throttleScroll);
         return () => documentRef.current.removeEventListener('scroll', throttleScroll);
     }, [pageY,throttleScroll]);
