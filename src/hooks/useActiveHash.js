@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { useState } from 'react';
 
 export const useActiveHsh = (itemIds, rootMargin) => {
@@ -24,7 +24,7 @@ export const useActiveHsh = (itemIds, rootMargin) => {
     return () => {
       observer.disconnect();
     };
-  }, [itemIds, rootMargin]);
+  }, [itemIds, rootMargin,activeHash]);
 
   return activeHash;
 };

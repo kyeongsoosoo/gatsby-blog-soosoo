@@ -1,7 +1,6 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 import { FloatingBox } from '../../Element/FloatingBox';
-import P from '../../Element/P';
 import useTheme from '../../hooks/useTheme';
 import { flexCenter } from '../../style/styleUtil';
 

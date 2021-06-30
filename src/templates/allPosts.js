@@ -27,7 +27,7 @@ export default function AllPosts({ pageContext, data }) {
 
   return (
     <HomeLayout totalTagList={countedTagList} category={category}>
-      <Seo />
+      <Seo title='Home'/>
       {posts.map(post => (
         <PostItem
           key={post.node.frontmatter.slug}

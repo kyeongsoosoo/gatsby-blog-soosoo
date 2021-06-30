@@ -15,16 +15,16 @@ export default function Header() {
   
   const setModalOpen = useModalUpdate();
 
-  const throttle = function (callback, waitTime) {
-    let timerId = null;
-    return (e) => {
-        if (timerId) return;
-        timerId = setTimeout(() => {
-            callback.call(this, e);
-            timerId = null;
-        }, waitTime);
-    };
-};
+//   const throttle = function (callback, waitTime) {
+//     let timerId = null;
+//     return (e) => {
+//         if (timerId) return;
+//         timerId = setTimeout(() => {
+//             callback.call(this, e);
+//             timerId = null;
+//         }, waitTime);
+//     };
+// };
 
   const [hide, setHide] = useState(false);
     const [pageY, setPageY] = useState(0);
@@ -44,7 +44,7 @@ export default function Header() {
     useEffect(() => {
         documentRef.current.addEventListener('scroll', throttleScroll);
         return () => documentRef.current.removeEventListener('scroll', throttleScroll);
-    }, [pageY]);
+    }, [pageY,throttleScroll]);
 
   return (
     <>

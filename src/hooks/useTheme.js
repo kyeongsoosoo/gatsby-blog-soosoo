@@ -1,10 +1,9 @@
-import React, { useLayoutEffect, useState } from 'react';
+import { useLayoutEffect } from 'react';
 import { useThemeUpdate, useThemeMode } from '../context/themeContext';
-import Location from '../utils/LocationService';
+
 import Theme from '../utils/ThemeService';
 
 export default function useTheme() {
-  // const [theme, setTheme] = useState();
 
   const theme = useThemeMode();
   const setTheme = useThemeUpdate();

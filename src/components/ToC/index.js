@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo } from 'react';
+import React, { useMemo } from 'react';
 import { Link } from 'gatsby';
 
 import styled, { css } from 'styled-components';
@@ -12,7 +12,7 @@ export default function ToC({ items }) {
 
       <TocContentWrapper>{createItems(items, activeHash)}</TocContentWrapper>
     </>
-  ), [activeHash])
+  ), [activeHash,items])
 
   if (!items) return;
   return toc
@@ -53,7 +53,6 @@ function createItems(items, activeHash, level = 1) {
   return (
     items &&
     items.map((item, index) => {
-      const isActive = item.url === `#${activeHash}`;
       const checkActiveLevel = checkLevel(item, activeHash)
       console.log(checkActiveLevel)
 

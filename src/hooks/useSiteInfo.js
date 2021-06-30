@@ -1,5 +1,4 @@
 import { useStaticQuery, graphql } from 'gatsby';
-import React from 'react';
 
 export default function useSiteInfo() {
   const data = useStaticQuery(graphql`

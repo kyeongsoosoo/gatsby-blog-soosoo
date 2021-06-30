@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react'
-import styled, { css, keyframes } from 'styled-components'
+import React from 'react'
+import styled, { css } from 'styled-components'
 import { useModalState, useModalUpdate } from '../../context/ModalContext';
 import Menu from '../Menu';
 
