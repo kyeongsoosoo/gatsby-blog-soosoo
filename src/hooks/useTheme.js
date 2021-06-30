@@ -8,6 +8,8 @@ export default function useTheme() {
   const theme = useThemeMode();
   const setTheme = useThemeUpdate();
 
+  Theme.init();
+
   const themeHandler = (savedTheme) => {
     if (savedTheme === 'dark') {
       Theme.remove('light');
