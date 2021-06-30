@@ -7,7 +7,7 @@ import './language-tabs.css';
 import Header from './Header';
 import { Code } from './Code';
 import { HeaderSpace } from '../Element/WhiteSpace';
-import ThemeProvider from '../context/themeContext';
+import ThemeProvider from '../context/ThemeContext';
 import ModalProvider from '../context/ModalContext';
 import Footer from './Footer';
 
