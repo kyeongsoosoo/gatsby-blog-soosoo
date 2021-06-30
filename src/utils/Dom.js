@@ -17,3 +17,17 @@ export const remove = (dt) => {
 export const  checkTheme = () => {
     return localStorage.getItem('theme');
   }
+
+
+export const  getParamList = () => {
+    return window.location.pathname.split('/');
+  };
+
+export const getTag = () => {
+    const list = getParamList();
+    return decodeURIComponent(list[1]);
+  };
+
+export const makeReload = () => {
+    window.location.reload();
+  };  
