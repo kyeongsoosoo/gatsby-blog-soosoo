@@ -8,7 +8,7 @@ export function toFit(
     let tick = false
   
     return function() {
-      console.log('scroll call')
+      
   
       if (tick) {
         return
@@ -16,7 +16,7 @@ export function toFit(
   
       tick = true
       return requestAnimationFrame(() => {
-          console.log('real call')
+          
           tick = false
           return cb()
       })

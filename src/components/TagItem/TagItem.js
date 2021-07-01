@@ -1,28 +1,24 @@
-import React, { useEffect, useRef } from 'react';
+import { Link } from 'gatsby';
+import React, { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import { FloatingBox } from '../../Element/FloatingBox';
 import P from '../../Element/P';
 import { flexCenter } from '../../style/styleUtil';
 
 export default function TagItem({ children, slug, isSelected = false, hasLeftMargin= false }) {
-  const tmpWindow = useRef();
-
-  const handleTagLink = event => {
-    event.preventDefault();
-    tmpWindow.current.location.href = `${window.location.origin}/${slug}`;
-  };
-
-  useEffect(() => {
-    tmpWindow.current = window;
-  },[])
-
 
   return (
-    <TagWrapper onClick={handleTagLink} isSelected={isSelected} hasLeftMargin={hasLeftMargin} tabIndex={0}>
-      <P type="tag">{children}</P>
-    </TagWrapper>
+    <TagLinkWrapper to={`/${slug}`}> 
+      <TagWrapper isSelected={isSelected} hasLeftMargin={hasLeftMargin} tabIndex={0}>
+        <P type="tag">{children}</P>
+      </TagWrapper>
+    </TagLinkWrapper>
   );
 }
+
+const TagLinkWrapper = styled(Link)`
+
+`;
 
 const TagWrapper = styled(FloatingBox)`
   --tag-padding: 3px 5px;

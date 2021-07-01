@@ -12,25 +12,34 @@ import { titleCss, typo2 } from '../../style/typo';
 import TagItem from '../TagItem/TagItem';
 export default function PostItem({ title, excerpt = '', tagList, slug }) {
   return (
-    <PostItemLinkWrapper to={`/${slug}`}>
-      <PostItemWrapper>
-        <PostItemTitle>
-          <Title>{title}</Title>
-        </PostItemTitle>
-        <PostItemDesc>
-          <P isGray={true}>{excerpt}</P>
-        </PostItemDesc>
-        <PostItemTagBox>
-          {tagList.map(tag => (
-            <TagItem key={tag} slug={NamingService.makeCategorySlug(tag)} hasLeftMargin={true}>
-              {NamingService.makeHashTag(tag)}
-            </TagItem>
-          ))}
-        </PostItemTagBox>
-      </PostItemWrapper>
-    </PostItemLinkWrapper>
+    <PostWrapper>
+      <PostItemLinkWrapper to={`/${slug}`}>
+        <PostItemWrapper>
+          <PostItemTitle>
+            <Title>{title}</Title>
+          </PostItemTitle>
+          <PostItemDesc>
+            <P isGray={true}>{excerpt}</P>
+          </PostItemDesc>
+        </PostItemWrapper>
+      </PostItemLinkWrapper>
+      <PostItemTagBox>
+        {tagList.map(tag => (
+          <TagItem key={tag} slug={NamingService.makeCategorySlug(tag)} hasLeftMargin={true}>
+            {NamingService.makeHashTag(tag)}
+          </TagItem>
+        ))}
+      </PostItemTagBox>
+    </PostWrapper>
   );
 }
+
+const PostWrapper = styled.div`
+  position: relative;
+
+  width: 100%;
+  
+`;
 
 const PostItemLinkWrapper = styled(Link)`
   width: 100%;
@@ -75,6 +84,10 @@ const PostItemDesc = styled.div`
 const PostItemTagBox = styled.div`
   --tag-box-width: 100%;
   --tag-box-margin: 15px 0px;
+
+  position: absolute;
+  top : 110px;
+  left : 10px;
 
   display: flex;
 
