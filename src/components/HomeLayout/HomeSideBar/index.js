@@ -1,7 +1,6 @@
-import React from 'react';
+import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import { MediaBreakPoint } from '../../../constants/constants';
-import { getTag } from '../../../utils/Dom';
 
 import NamingService from '../../../utils/NamingService';
 
@@ -10,7 +9,24 @@ import IntroBubble from '../../IntroBubble';
 import TagItem from '../../TagItem/TagItem';
 
 export default function HomeSideBar({ totalTagList }) {
-  const selectedTag = getTag();
+
+  const tmpWindow = useRef();
+  const [selectedTag,setSelected] = useState();
+
+  useLayoutEffect(() => {
+    tmpWindow.current = window;
+    setSelected( item => getTag());
+  },[]);
+  
+  const getTag = () => {
+    const list = getParamList();
+    return decodeURIComponent(list[1]);
+  };
+
+  const  getParamList = () => {
+    if(typeof window !== undefined)
+      return window.location.pathname.split('/');
+  };
 
   return (
     <HomeSidebarWrapper>

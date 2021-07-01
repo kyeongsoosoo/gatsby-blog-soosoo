@@ -9,7 +9,7 @@ import SideModal from '../SideModal';
 import { useModalUpdate } from '../../context/ModalContext';
 import { MediaBreakPoint } from '../../constants/constants';
 import { toFit } from '../../utils/RAF';
-import { getDocument } from '../../utils/Dom';
+
 
 export default function Header() {
 
