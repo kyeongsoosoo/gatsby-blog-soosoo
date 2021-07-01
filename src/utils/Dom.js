@@ -22,17 +22,3 @@ export const  checkTheme = () => {
     return localStorage.getItem('theme');
   }
 
-
-export const  getParamList = () => {
-    return getWindow().location.pathname.split('/');
-  };
-
-export const getTag = () => {
-    const list = getParamList();
-    return decodeURIComponent(list[1]);
-  };
-
-export const makeReload = () => {
-
-    getWindow().location.reload();
-  };  

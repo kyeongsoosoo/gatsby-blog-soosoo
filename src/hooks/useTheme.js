@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect } from 'react';
+import { useLayoutEffect } from 'react';
 import { useThemeUpdate, useThemeMode } from '../context/ThemeContext';
 import { add, remove } from '../utils/Dom';
 
