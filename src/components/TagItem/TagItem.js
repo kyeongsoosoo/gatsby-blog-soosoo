@@ -1,14 +1,22 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import { FloatingBox } from '../../Element/FloatingBox';
 import P from '../../Element/P';
 import { flexCenter } from '../../style/styleUtil';
 
 export default function TagItem({ children, slug, isSelected = false, hasLeftMargin= false }) {
+  const tmpWindow = useRef();
+
   const handleTagLink = event => {
     event.preventDefault();
-    window.location.href = `${window.location.origin}/${slug}`;
+    tmpWindow.current.location.href = `${window.location.origin}/${slug}`;
   };
+
+  useEffect(() => {
+    tmpWindow.current = window;
+  },[])
+
+
   return (
     <TagWrapper onClick={handleTagLink} isSelected={isSelected} hasLeftMargin={hasLeftMargin} tabIndex={0}>
       <P type="tag">{children}</P>

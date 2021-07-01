@@ -43,9 +43,9 @@ export default function Header() {
     const throttleScroll = toFit(handleScroll);
 
     useEffect(() => {
-  
-        document.addEventListener('scroll', throttleScroll);
-        return () => document.removeEventListener('scroll', throttleScroll);
+        documentRef.current = document;
+        documentRef.current.addEventListener('scroll', throttleScroll);
+        return () => documentRef.current.removeEventListener('scroll', throttleScroll);
     }, [pageY,throttleScroll]);
 
   return (
